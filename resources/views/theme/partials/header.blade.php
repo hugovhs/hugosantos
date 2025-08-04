@@ -10,11 +10,11 @@
             <!-- Desktop Menu -->
             <div class="hidden md:block">
                 <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:text-gray-400">Inicio</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Sobre mí</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Proyectos</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Blog</a></li>
-                    <li><a href="#" class="hover:text-gray-400">Contacto</a></li>
+                    <li><a href="#home" class="hover:text-gray-400">Sobre mí</a></li>
+                    <li><a href="#services" class="hover:text-gray-400">Servicios</a></li>
+                    <li><a href="#projects" class="hover:text-gray-400">Proyectos</a></li>
+                    <li><a href="#blog" class="hover:text-gray-400">Blog</a></li>
+                    <li><a href="#contact" class="hover:text-gray-400">Contacto</a></li>
                 </ul>
             </div>
 
@@ -44,11 +44,11 @@
 
                 <div class="flex flex-col items-center justify-center h-full -mt-12">
                     <ul class="text-center space-y-8">
-                        <li><a @click="isOpen = false" href="#" class="text-3xl text-white hover:text-gray-400">Inicio</a></li>
-                        <li><a @click="isOpen = false" href="#" class="text-3xl text-white hover:text-gray-400">Sobre mí</a></li>
-                        <li><a @click="isOpen = false" href="#" class="text-3xl text-white hover:text-gray-400">Proyectos</a></li>
-                        <li><a @click="isOpen = false" href="#" class="text-3xl text-white hover:text-gray-400">Blog</a></li>
-                        <li><a @click="isOpen = false" href="#" class="text-3xl text-white hover:text-gray-400">Contacto</a></li>
+                        <li><a @click="isOpen = false" href="#home" class="text-3xl text-white hover:text-gray-400">Sobre mí</a></li>
+                        <li><a @click="isOpen = false" href="#services" class="text-3xl text-white hover:text-gray-400">Servicios</a></li>
+                        <li><a @click="isOpen = false" href="#projects" class="text-3xl text-white hover:text-gray-400">Proyectos</a></li>
+                        <li><a @click="isOpen = false" href="#blog" class="text-3xl text-white hover:text-gray-400">Blog</a></li>
+                        <li><a @click="isOpen = false" href="#contact" class="text-3xl text-white hover:text-gray-400">Contacto</a></li>
                     </ul>
                 </div>
             </div>

@@ -2,6 +2,10 @@
 
 @section('title', 'Home')
 
+@section('head_scripts')
+    @vite('resources/js/scroll-smooth.js')
+@endsection
+
 @section('content')
     <div class="bg-[#1e1e1e] text-white">
         <div class="container mx-auto p-8">
@@ -12,20 +16,31 @@
                 <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 relative z-10">
                     <div class="md:w-1/2 text-center md:text-left">
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                            Hello World, <br /> I am Hugo Santos, <span class="text-purple-400">Full Stack Developer</span>
+                            Hola mundo <i class="fa-solid fa-code"></i>
+                            <br>
+                            Soy Hugo Santos, <span class="text-purple-400">Full Stack Developer</span>
                         </h1>
                         
                         <p class="text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
-                            I create an efficient UI mobile or web design also UX research to make sure that I get what people needs and strategy for interaction design.
+                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Con más de 12 años de experiencia en el desarrollo web y móvil, 
+                            he trabajado en una gran variedad de proyectos. Mi enfoque es siempre en la calidad del código y la experiencia del usuario.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <button class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-6 text-md font-bold">DOWNLOAD CV</button>
+                            <a 
+                                href="{{ asset('assets/pdf/cv_hugo_santos_2025.pdf') }}" 
+                                target="_blank" 
+                                class="bg-purple-600 hover:bg-purple-700 rounded-full px-6 py-4 text-md font-bold"
+                            >
+                                <i class="fa-solid fa-download"></i> DESCARGAR CV
+                            </a>
+                            
                             <div class="flex space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/in/hugosantosw/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                                <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github fa-2x"></i></a>
+
+                                {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a> --}}
+                                {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -44,9 +59,9 @@
             {{-- stats section --}}
             @php
                 $stats = [
-                    ['icon' => '<i class="fa-brands fa-magento fa-2x"></i>', 'label' => 'Magento', 'value' => 'Certificado en Adobe Commerce'],
-                    ['icon' => '<i class="fa-brands fa-youtube fa-2x"></i>', 'label' => 'YouTube', 'value' => 'Creador de Contenido'],
-                    ['icon' => '<i class="fa-brands fa-github fa-2x"></i>', 'label' => 'GitHub', 'value' => 'Contribuciones Open Source']
+                    ['icon' => '<i class="fa-brands fa-magento fa-2x"></i>', 'label' => 'Adobe Commerce Developer', 'value' => 'Certificado por Adobe'],
+                    ['icon' => '<i class="fa-brands fa-laravel fa-2x"></i>', 'label' => 'Laravel, PHP', 'value' => '+12 años de experiencia'],
+                    ['icon' => '<i class="fa-brands fa-flutter fa-2x"></i>', 'label' => 'Flutter', 'value' => 'APPs multiplataforma']
                 ];
             @endphp
 
@@ -75,38 +90,33 @@
                 @php
                     $experiences = [
                         [
-                            'role' => 'Creative Director',
-                            'company' => 'at Fourth Company',
-                            'period' => '2015 - Present',
+                            'role' => 'Full Stack Developer',
+                            'company' => 'Wibrante',
+                            'period' => '2013 - Presente',
                         ],
                         [
-                            'role' => 'Senior UI/UX Designer',
-                            'company' => 'at Third Company',
-                            'period' => '2013 - 2015',
+                            'role' => 'Backend Developer, Líder técnico',
+                            'company' => 'Never8',
+                            'period' => '2021 - 2025',
                         ],
                         [
-                            'role' => 'UI/UX Designer',
-                            'company' => 'at Second Company',
-                            'period' => '2012 - 2013',
-                        ],
-                        [
-                            'role' => 'UI/UX Designer',
-                            'company' => 'at First Company',
-                            'period' => '2009 - 2011',
-                        ],
+                            'role' => 'Backend Developer',
+                            'company' => 'MiPC Comunicaciones',
+                            'period' => '2018 - 2021',
+                        ]
                     ];
 
                     $skills = [
-                        [ 'name' => 'UI Interface Design', 'level' => 90, 'icon' => '<i class="fa-solid fa-wand-magic-sparkles text-purple-400"></i>' ],
-                        [ 'name' => 'Icon Design', 'level' => 85, 'icon' => '<i class="fa-solid fa-pencil-alt text-purple-400"></i>' ],
-                        [ 'name' => 'HTML Prototyping', 'level' => 80, 'icon' => '<i class="fa-solid fa-globe text-purple-400"></i>' ],
-                        [ 'name' => 'Photo Editing', 'level' => 95, 'icon' => '<i class="fa-solid fa-camera text-purple-400"></i>' ],
-                        [ 'name' => 'Graphic Illustrations', 'level' => 75, 'icon' => '<i class="fa-solid fa-snowflake text-purple-400"></i>' ],
+                        [ 'name' => 'PHP (Laravel, Magento, Adobe Commerce)', 'level' => 90, 'icon' => '<i class="fa-brands fa-php text-purple-400"></i>' ],
+                        [ 'name' => 'C# (ASP.NET)', 'level' => 85, 'icon' => '<i class="fa-brands fa-microsoft text-purple-400"></i>' ],
+                        [ 'name' => 'Flutter', 'level' => 80, 'icon' => '<i class="fa-brands fa-flutter text-purple-400"></i>' ],
+                        [ 'name' => 'JavaScript (NodeJS, React, JQuery)', 'level' => 95, 'icon' => '<i class="fa-brands fa-js text-purple-400"></i>' ],
+                        [ 'name' => 'HTML, CSS', 'level' => 90, 'icon' => '<i class="fa-brands fa-html5 text-purple-400"></i>' ],
                     ];
                 @endphp
 
                 <section id="experience">
-                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">WORK EXPERIENCE</h2>
+                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">EXPERIENCIA LABORAL</h2>
                     
                     <div class="relative border-l-2 border-purple-500 pl-8">
                         @foreach($experiences as $index => $exp)
@@ -121,7 +131,7 @@
                 </section>
 
                 <section id="skills">
-                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">SKILL AND EXPERTISE</h2>
+                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">STACK Y EXPERTISE</h2>
                         
                     <div class="space-y-6">
                         @foreach($skills as $index => $skill)
@@ -145,19 +155,19 @@
             @php
                 $projectStats = [
                     [
-                        'icon' => '<i class="fas fa-check-circle fa-2x"></i>',
-                        'value' => 123,
-                        'label' => 'Completed Project'
+                        'icon' => '<i class="fa-solid fa-circle-check fa-2x"></i>',
+                        'value' => '+100',
+                        'label' => 'Proyectos'
                     ],
                     [
-                        'icon' => '<i class="fas fa-clock fa-2x"></i>',
-                        'value' => 4567,
-                        'label' => 'Working Hour'
+                        'icon' => '<i class="fa-solid fa-clock fa-2x"></i>',
+                        'value' => '+23,000',
+                        'label' => 'Horas de Trabajo'
                     ],
                     [
-                        'icon' => '<i class="fas fa-heart fa-2x"></i>',
-                        'value' => 89,
-                        'label' => 'Happy Clients'
+                        'icon' => '<i class="fa-solid fa-code fa-2x"></i>',
+                        'value' => '+1,000,000',
+                        'label' => 'Líneas de Código'
                     ],
                 ];
             @endphp
@@ -183,21 +193,20 @@
             {{-- services section --}}
             @php
                 $services = [
-                    [ 'name' => 'UI Interface Design', 'icon' => '<i class="fa-solid fa-wand-magic-sparkles"></i>' ],
-                    [ 'name' => 'Icon Design', 'icon' => '<i class="fa-solid fa-pen-nib"></i>' ],
-                    [ 'name' => 'HTML Prototyping', 'icon' => '<i class="fa-solid fa-globe"></i>' ],
-                    [ 'name' => 'Photo Editing', 'icon' => '<i class="fa-solid fa-camera"></i>' ],
-                    [ 'name' => 'Graphic Illustrations', 'icon' => '<i class="fa-solid fa-snowflake"></i>' ],
-                    [ 'name' => 'Web Development', 'icon' => '<i class="fa-solid fa-code"></i>' ],
-                    [ 'name' => 'SEO Optimization', 'icon' => '<i class="fa-solid fa-search"></i>' ]
+                    [ 'name' => 'ecommerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>' ],
+                    [ 'name' => 'APPs Web', 'icon' => '<i class="fa-solid fa-cloud"></i>' ],
+                    [ 'name' => 'Páginas web', 'icon' => '<i class="fa-brands fa-html5"></i>' ],
+                    [ 'name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>' ],
+                    [ 'name' => 'APPs Móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>' ],
+                    [ 'name' => 'Consultoría', 'icon' => '<i class="fa-solid fa-globe"></i>' ]
                 ];
             @endphp
 
             <section id="services" class="py-16">
                 <div class="container mx-auto">
                     <div class="mb-12">
-                        <h2 class="text-3xl font-bold">Services</h2>
-                        <p class="text-gray-400">Working with mutual respect and trust</p>
+                        <h2 class="text-3xl font-bold">Servicios</h2>
+                        <p class="text-gray-400">Trabajando con responsabilidad y confianza mutua</p>
                     </div>
                     
                     <div class="grid grid-cols-1 max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -213,36 +222,46 @@
             {{-- ends services section --}}
 
             <!-- My Work Section -->
-            <section class="py-20 text-center">
-                <h2 class="text-4xl font-bold">My Work</h2>
-                
-                <div class="mt-8 flex justify-center space-x-4">
-                    <button class="bg-purple-600 text-white py-2 px-4 rounded-lg">ALL</button>
-                    <button class="hover:text-gray-400">CATEGORY 1</button>
-                    <button class="hover:text-gray-400">CATEGORY 2</button>
-                    <button class="hover:text-gray-400">CATEGORY 3</button>
-                    <button class="hover:text-gray-400">CATEGORY 4</button>
-                </div>
+            <section class="py-20 text-center" id="projects">
+                <h2 class="text-4xl font-bold">Proyectos recientes</h2>
                 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 1" class="w-full h-full object-cover rounded-lg">
+                    <div class="project bg-[#2a2a2a] rounded-lg">
+                        <div class="project-image">
+                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 1" class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="project-name py-3">
+                            <h3 class="text-xl font-bold mt-2">Proyecto 1</h3>
+                            <p class="text-gray-400">Descripción breve del proyecto 1.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 2" class="w-full h-full object-cover rounded-lg">
+
+                    <div class="project bg-[#2a2a2a] rounded-lg">
+                        <div class="project-image">
+                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 2" class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="project-name py-3">
+                            <h3 class="text-xl font-bold mt-2">Proyecto 2</h3>
+                            <p class="text-gray-400">Descripción breve del proyecto 2.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 3" class="w-full h-full object-cover rounded-lg">
+
+                    <div class="project bg-[#2a2a2a] rounded-lg">
+                        <div class="project-image">
+                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 3" class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="project-name py-3">
+                            <h3 class="text-xl font-bold mt-2">Proyecto 3</h3>
+                            <p class="text-gray-400">Descripción breve del proyecto 3.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 4" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 5" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="bg-gray-700 h-64 rounded-lg">
-                        <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 6" class="w-full h-full object-cover rounded-lg">
-                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <a href="#" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PROYECTOS</a>
                 </div>
             </section>
 
@@ -250,26 +269,34 @@
             <section id="testimonials" class="my-16 p-8 md:p-16 bg-gradient-to-br from-purple-800/80 to-purple-900/80 rounded-2xl">
                 <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl font-bold mb-4">What Client Said</h2>
+                        <h2 class="text-3xl font-bold mb-4">Hagamos realidad tus ideas</h2>
                         <img src="{{ asset('assets/img/work_together.jpg') }}" alt="World map with client avatars" class="w-full" />
                     </div>
                     
                     <div>
-                        <h3 class="text-4xl font-bold mb-4">Let's work together</h3>
+                        <h3 class="text-4xl font-bold mb-4">Trabajemos juntos</h3>
                         <p class="text-gray-300 mb-8">
-                            The key to building long term relationships is trust. I take the responsibility of being your development partner seriously. My design agreement gives you peace of mind that your intellectual property is safe guarded.
+                            Estoy aquí para ayudarte a llevar tus proyectos al siguiente nivel. Con más de 12 años de experiencia en desarrollo web y móvil, 
+                            ofrezco soluciones a la medida, alineadas con las necesidades y objetivos de cada cliente. Desarrollo aplicaciones web, 
+                            plataformas de comercio electrónico y aplicaciones móviles con un enfoque en funcionalidad, rendimiento y experiencia de usuario. 
+                            Será un gusto colaborar contigo y convertir tus ideas en resultados concretos.
                         </p>
 
-                        <button class="bg-white text-purple-700 hover:bg-gray-200 rounded-full px-8 py-2 text-lg font-bold">HIRE ME</button>
+                        <a 
+                            href="#contact"
+                            class="bg-white text-purple-700 hover:bg-gray-200 rounded-full px-8 py-2 text-lg font-bold"
+                        >
+                            CONTACTAME
+                        </a>
                     </div>
                 </div>
             </section>
             {{-- ends testimonials section --}}
 
             <!-- Latest Post Section -->
-            <section class="py-20 text-center" id="latest-posts">
-                <h2 class="text-4xl font-bold">Latest Post</h2>
-                
+            <section class="py-20 text-center" id="blog">
+                <h2 class="text-4xl font-bold">Últimas Publicaciones</h2>
+
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="post bg-[#2a2a2a] p-8 rounded-lg text-left">
                         <div class="post-image mb-4">
@@ -303,6 +330,10 @@
                         <a href="#" class="mt-4 inline-block text-purple-400">READ MORE</a>
                     </div>
                 </div>
+
+                <div class="mt-8">
+                    <a href="#" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
+                </div>
             </section>
             {{-- ends latest post section --}}
 
@@ -314,42 +345,57 @@
                             <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Logo" class="w-16 h-16" />
                         </div>
                     
-                        <h2 class="text-4xl font-bold">James Doe</h2>
-                        <p class="text-gray-400 mb-4">FRONT END DEVELOPER</p>
+                        <h2 class="text-4xl font-bold">Hugo Santos</h2>
+                        <p class="text-gray-400 mb-4">FULL STACK DEVELOPER</p>
 
-                        <button variant="outline" class="border-purple-500 text-purple-500 hover:bg-purple-500 bg-white hover:text-white rounded-full px-8">DOWNLOAD CV</button>
+                        <a 
+                            href="{{ asset('assets/pdf/cv_hugo_santos_2025.pdf') }}" 
+                            target="_blank" 
+                            class="border-purple-500 text-purple-500 hover:bg-purple-500 bg-white hover:text-white rounded-full px-8"
+                        >
+                            DESCARGAR CV
+                        </a>
 
                         <div class="flex justify-center md:justify-start space-x-4 my-8">
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/hugosantosw/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
                         </div>
                     
                         <div class="space-y-4">
                             <div>
-                                <p class="text-gray-400">My personal contact</p>
-                                <p class="text-lg font-semibold">+12 345 678 90</p>
+                                <p class="text-gray-400">Teléfono personal:</p>
+                                <p class="text-lg font-semibold">33 51 24 07 03</p>
                             </div>
 
                             <div>
-                                <p class="text-gray-400">Say hello</p>
-                                <p class="text-lg font-semibold">jenadoe.skype</p>
+                                <p class="text-gray-400">email:</p>
+                                <p class="text-lg font-semibold">hugosantos@wibrante.com</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h2 class="text-4xl font-bold mb-4">Contact <span class="text-purple-400">Me.</span></h2>
+                        <h2 class="text-4xl font-bold mb-4">Contacta <span class="text-purple-400">Me.</span></h2>
                         
-                        <form class="space-y-8">
-                            <input type="text" placeholder="What is your name? *" class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full">
+                        <form class="space-y-8" id="contact-form">
+                            <input 
+                                type="text" 
+                                placeholder="Tu nombre *" 
+                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
+                            >
 
-                            <input type="email" placeholder="What it your email? *" class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full">
+                            <input 
+                                type="email" 
+                                placeholder="Tu correo electrónico *" 
+                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
+                            >
 
-                            <textarea placeholder="Write your message here" class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-32 w-full"></textarea>
+                            <textarea 
+                                placeholder="Déjame un mensaje" 
+                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-32 w-full"
+                            ></textarea>
 
-                            <button class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">SEND MESSAGE</button>
+                            <button class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
                         </form>
                     </div>
                 </div>
