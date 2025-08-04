@@ -2,6 +2,10 @@
 
 @section('title', 'Home')
 
+@section('head_scripts')
+    @vite('resources/js/scroll-smooth.js')
+@endsection
+
 @section('content')
     <div class="bg-[#1e1e1e] text-white">
         <div class="container mx-auto p-8">

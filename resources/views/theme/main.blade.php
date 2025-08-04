@@ -16,9 +16,11 @@
         {{-- head styles --}}
         <link rel="stylesheet" href="{{ asset('assets/libs/fontawesome/css/all.min.css') }}">
         @vite('resources/css/app.css')
+        @yield('head_styles')
 
         {{-- head scripts --}}
         <script src="//unpkg.com/alpinejs" defer></script>
+        @yield('head_scripts')
     </head>
 
     <body>
