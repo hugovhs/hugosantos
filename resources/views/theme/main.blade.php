@@ -4,9 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/png">
+        {{-- meta tags --}}
+        <meta name="description" content="@yield('meta_description', 'Hugo Santos Dev - Experiencia, proyectos y blog, conoce mi trabajo. Soy full stack developer con más de 12 años de experiencia.')">
+        <meta name="keywords" content="@yield('meta_keywords', 'Hugo Santos, desarrollador, developer, portafolio, blog, desarrollo web, full stack')">
+        <meta name="author" content="hugovhs.dev">
 
         <title>@yield('title', 'Home') | Hugo Santos Dev</title>
+
+        <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/png">
 
         {{-- head styles --}}
         <link rel="stylesheet" href="{{ asset('assets/libs/fontawesome/css/all.min.css') }}">
@@ -26,5 +31,6 @@
         @include('theme.partials.footer')
         
         {{-- footer scripts --}}
+        @yield('scripts')
     </body>
 </html>

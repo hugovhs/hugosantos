@@ -1,5 +1,5 @@
-<footer class="bg-gray-900 text-white p-4 mt-8">
+<footer class="bg-[#191919] text-white py-6">
     <div class="container mx-auto text-center">
-        <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+        <p>&copy; {{ date('Y') }} hugovhs.dev - Todos los derechos reservados.</p>
     </div>
 </footer>
