@@ -198,6 +198,9 @@
                     [ 'name' => 'Páginas web', 'icon' => '<i class="fa-brands fa-html5"></i>' ],
                     [ 'name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>' ],
                     [ 'name' => 'APPs Móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>' ],
+                    [ 'name' => 'Integraciones con APIs, CRMs', 'icon' => '<i class="fa-solid fa-plug"></i>' ],
+                    [ 'name' => 'Creación de API Rest', 'icon' => '<i class="fa-brands fa-connectdevelop"></i>' ],
+                    [ 'name' => 'Automatizaciones', 'icon' => '<i class="fa-solid fa-robot"></i>' ],
                     [ 'name' => 'Consultoría', 'icon' => '<i class="fa-solid fa-globe"></i>' ]
                 ];
             @endphp
