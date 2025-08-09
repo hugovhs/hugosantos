@@ -61,7 +61,8 @@
                 $stats = [
                     ['icon' => '<i class="fa-brands fa-magento fa-2x"></i>', 'label' => 'Adobe Commerce Developer', 'value' => 'Certificado por Adobe'],
                     ['icon' => '<i class="fa-brands fa-laravel fa-2x"></i>', 'label' => 'Laravel, PHP', 'value' => '+12 años de experiencia'],
-                    ['icon' => '<i class="fa-brands fa-flutter fa-2x"></i>', 'label' => 'Flutter', 'value' => 'APPs multiplataforma']
+                    ['icon' => '<i class="fa-brands fa-flutter fa-2x"></i>', 'label' => 'Flutter', 'value' => 'APPs multiplataforma'],
+                    ['icon' => '<i class="fa-brands fa-microsoft fa-2x"></i>', 'label' => 'C#', 'value' => 'ASP.NET']
                 ];
             @endphp
 
@@ -193,13 +194,13 @@
             {{-- services section --}}
             @php
                 $services = [
-                    [ 'name' => 'ecommerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>' ],
+                    [ 'name' => 'e-commerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>' ],
                     [ 'name' => 'APPs Web', 'icon' => '<i class="fa-solid fa-cloud"></i>' ],
                     [ 'name' => 'Páginas web', 'icon' => '<i class="fa-brands fa-html5"></i>' ],
                     [ 'name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>' ],
                     [ 'name' => 'APPs Móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>' ],
                     [ 'name' => 'Integraciones con APIs, CRMs', 'icon' => '<i class="fa-solid fa-plug"></i>' ],
-                    [ 'name' => 'Creación de API Rest', 'icon' => '<i class="fa-brands fa-connectdevelop"></i>' ],
+                    [ 'name' => 'Creación de APIs', 'icon' => '<i class="fa-brands fa-connectdevelop"></i>' ],
                     [ 'name' => 'Automatizaciones', 'icon' => '<i class="fa-solid fa-robot"></i>' ],
                     [ 'name' => 'Consultoría', 'icon' => '<i class="fa-solid fa-globe"></i>' ]
                 ];
