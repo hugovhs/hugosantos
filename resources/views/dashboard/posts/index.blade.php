@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="row">
-    <div class="col-12 d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3 m-0">Listado de Posts</h1>
+    <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 m-0">Posts</h1>
         <a href="{{ route('dashboard.posts.create') }}" class="btn btn-primary">Crear Post</a>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="card">
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table table-striped mb-0">
+                    <table class="table table-sm table-striped mb-0">
                         <thead>
                             <tr>
                                 <th>ID</th>

@@ -4,13 +4,13 @@
 
 @section('content')
 <div class="row">
-    <div class="col-12 mb-3 d-flex justify-content-between align-items-center">
+    <div class="col-8 mb-3 d-flex justify-content-between align-items-center">
         <h1 class="h3 m-0">Crear Post</h1>
         <a href="{{ route('dashboard.posts') }}" class="btn btn-outline-secondary">Volver al listado</a>
     </div>
 
     @if ($errors->any())
-        <div class="col-12 alert alert-danger">
+        <div class="col-8 alert alert-danger">
             <ul class="mb-0">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -19,7 +19,7 @@
         </div>
     @endif
 
-    <div class="col-12">
+    <div class="col-8">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('dashboard.posts.store') }}" method="POST">

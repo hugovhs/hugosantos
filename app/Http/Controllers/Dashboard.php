@@ -73,3 +73,58 @@ class Dashboard extends Controller
 
         return view('dashboard.posts.index', compact('posts'));
     }
+
+    public function createPost()
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+        return view('dashboard.posts.create');
+    }
+
+    public function storePost(Request $request)
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+        // Aquí puedes agregar la validación y lógica para guardar el post
+        // Ejemplo:
+        // $request->validate([...]);
+        // Post::create([...]);
+        return redirect()->route('dashboard.posts')->with('status', 'Publicación creada correctamente.');
+    }
+
+    public function editPost($id)
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+        $post = Post::findOrFail($id);
+        return view('dashboard.posts.edit', compact('post'));
+    }
+
+    public function updatePost(Request $request, $id)
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+        // Aquí puedes agregar la validación y lógica para actualizar el post
+        // Ejemplo:
+        // $request->validate([...]);
+        // $post = Post::findOrFail($id);
+        // $post->update([...]);
+        return redirect()->route('dashboard.posts')->with('status', 'Publicación actualizada correctamente.');
+    }
+
+    public function deletePost($id)
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+        // Aquí puedes agregar la lógica para eliminar el post
+        // Ejemplo:
+        // $post = Post::findOrFail($id);
+        // $post->delete();
+        return redirect()->route('dashboard.posts')->with('status', 'Publicación eliminada correctamente.');
+    }
+}
