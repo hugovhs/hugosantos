@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Models
+use App\Models\Admin;
+
 class Dashboard extends Controller
 {
     public function index()
@@ -22,12 +25,29 @@ class Dashboard extends Controller
 
     public function loginPost(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        // add validation
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'El correo es obligatorio.',
+            'email.email' => 'El correo debe ser una dirección de correo válida.',
+            'password.required' => 'La contraseña es obligatoria.',
+        ]);
 
-        // if (auth()->attempt($credentials)) {
-        //     session(['admin' => true]);
-        //     return redirect()->route('dashboard.index');
-        // }
+        // check credentials
+        $admin = Admin::where('email', $request->email)->first();
+
+        if ($admin && ($admin->password === sha1($request->password))) {
+            // quitamos $admin->password del objeto por custiones de seguridad
+            unset($admin->password);
+
+            session([
+                'admin' => $admin
+            ]);
+
+            return redirect()->route('dashboard.index');
+        }
 
         return redirect()->route('dashboard.login')->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
