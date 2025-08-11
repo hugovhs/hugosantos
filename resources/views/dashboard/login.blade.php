@@ -41,6 +41,12 @@
                     </div>
                 @endif
 
+                @if(session('status'))
+                    <div class="alert alert-warning">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('dashboard.login.post') }}">
                     @csrf
                     
@@ -89,5 +95,11 @@
                 </form>
             </div>
         </main>
+
+        <script>
+            $(function() {
+                $('div.alert').not('.alert-important').delay(6000).fadeOut(350);
+            });
+        </script>
     </body>
 </html>

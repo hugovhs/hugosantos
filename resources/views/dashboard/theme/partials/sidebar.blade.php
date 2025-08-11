@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link">
+            <a href="{{ route('dashboard.posts') }}" class="nav-link">
                 <i class="bi bi-file-earmark-text me-2"></i>
                 Posts
             </a>

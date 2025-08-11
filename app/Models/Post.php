@@ -15,7 +15,7 @@ class Post extends Model
         'excerpt',
         'content',
         'thumbnail',
-        'type',
+        'type', // 1 post, 2 project
         'user_id',
         'views',
     ];

@@ -32,11 +32,11 @@
                 </main>
             </div>
         </div>
-        
-        {{-- scripts --}}
-        @yield('scripts')
 
         {{-- footer --}} 
+
+        {{-- scripts --}}
+        @yield('scripts')
     </body>
 </html>
 

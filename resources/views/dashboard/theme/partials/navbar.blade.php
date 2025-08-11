@@ -12,7 +12,7 @@
                 </button>
                 
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="{{ route('dashboard.logout') }}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
                 </ul>
             </div>
         </div>

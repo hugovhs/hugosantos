@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 // Models
 use App\Models\Admin;
+use App\Models\Post;
 
 class Dashboard extends Controller
 {
@@ -53,4 +54,22 @@ class Dashboard extends Controller
             'email' => 'Las credenciales no coinciden con nuestros registros.',
         ]);
     }
-}
+
+    public function logout()
+    {
+        session()->forget('admin');
+        session()->flush();
+
+        return redirect()->route('dashboard.login')->with('status', 'Has cerrado sesión correctamente.');
+    }
+
+    public function posts()
+    {
+        if (!session('admin')) {
+            return redirect()->route('dashboard.login');
+        }
+
+        $posts = Post::where('type', 1)->orderBy('created_at', 'desc')->paginate(15);
+
+        return view('dashboard.posts.index', compact('posts'));
+    }

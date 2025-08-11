@@ -12,6 +12,7 @@ Route::prefix('dashboard')->group(function () {
     // login
     Route::get('/login', [Dashboard::class, 'login'])->name('dashboard.login');
     Route::post('/login', [Dashboard::class, 'loginPost'])->name('dashboard.login.post');
+    Route::get('/logout', [Dashboard::class, 'logout'])->name('dashboard.logout');
 
     // blog and projects posts
     Route::get('/posts', [Dashboard::class, 'posts'])->name('dashboard.posts');
