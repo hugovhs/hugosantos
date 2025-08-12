@@ -6,11 +6,15 @@
 <div class="row">
     <div class="col-12 d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 m-0">Posts</h1>
-        <a href="{{ route('dashboard.posts.create') }}" class="btn btn-primary">Crear Post</a>
+        <a href="{{ route('dashboard.posts.create') }}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Crear Post</a>
     </div>
 
     @if (session('status'))
         <div class="col-12 alert alert-success">{{ session('status') }}</div>
+    @endif
+
+    @if(session('success'))
+        <div class="col-12 alert alert-success">{{ session('success') }}</div>
     @endif
 
     @if ($errors->any())
@@ -42,14 +46,23 @@
                                 <tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->type }}</td>
+                                    <td>
+                                        @if($post->type == 1)
+                                            Blog
+                                        @elseif($post->type == 2)
+                                            Proyecto
+                                        @else
+                                            Otro
+                                        @endif
+                                    </td>
                                     <td>{{ $post->views }}</td>
                                     <td class="d-flex gap-2">
-                                        <a href="{{ route('dashboard.posts.edit', ['id' => $post->id]) }}" class="btn btn-sm btn-secondary">Editar</a>
+                                        <a href="{{ route('dashboard.posts.edit', ['id' => $post->id]) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i> Editar</a>
+
                                         <form action="{{ route('dashboard.posts.delete', ['id' => $post->id]) }}" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar este Post?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                            <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
                                         </form>
                                     </td>
                                 </tr>
