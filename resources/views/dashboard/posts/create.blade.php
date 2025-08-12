@@ -2,6 +2,15 @@
 
 @section('title', 'Crear Post')
 
+@section('head_styles')
+    <link rel="stylesheet" href="{{ asset('assets/libs/summernote/summernote-bs5.min.css') }}">
+@endsection
+
+@section('head_scripts')
+    <script src="{{ asset('assets/libs/summernote/summernote-bs5.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/summernote/lang/summernote-es-ES.min.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-8 mb-3 d-flex justify-content-between align-items-center">
@@ -22,7 +31,7 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('dashboard.posts.store') }}" method="POST">
+                <form action="{{ route('dashboard.posts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -32,22 +41,25 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="excerpt">Resumen</label>
-                        <textarea id="excerpt" name="excerpt" class="form-control" rows="2">{{ old('excerpt') }}</textarea>
+                        <textarea id="excerpt" name="excerpt" class="form-control" rows="4">{{ old('excerpt') }}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="content">Contenido</label>
-                        <textarea id="content" name="content" class="form-control" rows="6">{{ old('content') }}</textarea>
+                        <textarea id="content" name="content" class="form-control">{{ old('content') }}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="thumbnail">Thumbnail (URL o ruta)</label>
-                        <input type="text" id="thumbnail" name="thumbnail" class="form-control" value="{{ old('thumbnail') }}">
+                        <label class="form-label" for="thumbnail">Thumbnail</label>
+                        <input type="file" id="thumbnail" name="thumbnail" class="form-control" accept="image/*">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-5">
                         <label class="form-label" for="type">Tipo</label>
-                        <input type="text" id="type" name="type" class="form-control" value="{{ old('type') }}" placeholder="blog, project, etc.">
+                        <select name="type" id="type" class="form-select">
+                            <option value="1" {{ old('type') == '1' ? 'selected' : '' }}>Blog</option>
+                            <option value="2" {{ old('type') == '2' ? 'selected' : '' }}>Project</option>
+                        </select>
                     </div>
 
                     <div class="d-flex gap-2">
@@ -58,5 +70,35 @@
             </div>
         </div>
     </div>
+
+    <div class="col-4">
+        <div class="thumbnail-preview"></div>
+    </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#content').summernote({
+                height: 300,
+                lang: 'es-ES'
+            });
+            
+            // genera un preview de la imagen selecionada
+            $('#thumbnail').on('change', function(event) {
+                const [file] = event.target.files;
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewContainer = $('.thumbnail-preview');
+                        previewContainer.empty();
+                        const img = $('<img>').attr('src', e.target.result).addClass('img-thumbnail');
+                        previewContainer.append(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
 @endsection

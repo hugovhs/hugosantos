@@ -7,21 +7,16 @@
 
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="{{ route('dashboard.index') }}" class="nav-link @if(request()->routeIs('dashboard.index')) active @endif">
                 <i class="bi bi-house-door me-2"></i>
                 Home
             </a>
         </li>
+
         <li>
-            <a href="#" class="nav-link">
-                <i class="bi bi-folder me-2"></i>
-                Proyectos
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('dashboard.posts') }}" class="nav-link">
+            <a href="{{ route('dashboard.posts') }}" class="nav-link @if(request()->routeIs('dashboard.posts')) active @endif">
                 <i class="bi bi-file-earmark-text me-2"></i>
-                Posts
+                Publicaciones
             </a>
         </li>
     </ul>

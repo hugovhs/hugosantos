@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 // Models
 use App\Models\Admin;
@@ -69,7 +70,7 @@ class Dashboard extends Controller
             return redirect()->route('dashboard.login');
         }
 
-        $posts = Post::where('type', 1)->orderBy('created_at', 'desc')->paginate(15);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(15);
 
         return view('dashboard.posts.index', compact('posts'));
     }
@@ -87,11 +88,42 @@ class Dashboard extends Controller
         if (!session('admin')) {
             return redirect()->route('dashboard.login');
         }
-        // Aquí puedes agregar la validación y lógica para guardar el post
-        // Ejemplo:
-        // $request->validate([...]);
-        // Post::create([...]);
-        return redirect()->route('dashboard.posts')->with('status', 'Publicación creada correctamente.');
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'excerpt' => 'required|string',
+            'content' => 'required|string',
+            'thumbnail' => 'nullable|image|max:2048',
+            'type' => 'required|in:1,2',
+        ]);
+
+        $postData = $request->only('title', 'excerpt', 'content', 'type');
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $filename = $originalFilename . '.' . $extension;
+            $path = 'thumbnails/' . $filename;
+            $counter = 1;
+
+            while (Storage::disk('public')->exists($path)) {
+                $filename = $originalFilename . '_' . $counter . '.' . $extension;
+                $path = 'thumbnails/' . $filename;
+                $counter++;
+            }
+            
+            Storage::disk('public')->put($path, file_get_contents($file));
+            
+            $postData['thumbnail'] = $path;
+        }
+
+        // guardamos el id del usuario que creo el post
+        $postData['user_id'] = session('admin.id');
+
+        Post::create($postData);
+
+        return redirect()->route('dashboard.posts')->with('success', 'Publicación creada correctamente.');
     }
 
     public function editPost($id)
