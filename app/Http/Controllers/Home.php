@@ -16,6 +16,14 @@ class Home extends Controller
         return view('index', compact('posts', 'projects'));
     }
 
+    // blog view
+    public function blog()
+    {
+        $posts = Post::where('type', 1)->orderBy('created_at', 'desc')->paginate(12);
+       
+        return view('blog', compact('posts'));
+    }
+
     // blog post view
     public function blogPost($slug)
     {
