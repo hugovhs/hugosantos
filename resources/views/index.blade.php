@@ -301,7 +301,7 @@
             <section class="py-20 text-center" id="blog">
                 <h2 class="text-4xl font-bold">Últimas Publicaciones</h2>
 
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach ($posts as $post)
                     <div class="post bg-[#2a2a2a] p-8 rounded-lg text-left">
                         <div class="post-image mb-4">

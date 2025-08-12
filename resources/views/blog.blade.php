@@ -11,7 +11,7 @@
                 <p class="text-gray-400 mt-2">Artículos, noticias, tutoriales y tips de desarrollo</p>
 
                 <!-- Posts grid (copiado y adaptado de index.blade.php:301-323) -->
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @forelse ($posts as $post)
                     <div class="post bg-[#2a2a2a] p-8 rounded-lg text-left">
                         <div class="post-image mb-4">
