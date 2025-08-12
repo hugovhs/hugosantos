@@ -59,6 +59,8 @@ class Dashboard extends Controller
     public function logout()
     {
         session()->forget('admin');
+
+        // elimina todos los datos de la sesión
         session()->flush();
 
         return redirect()->route('dashboard.login')->with('status', 'Has cerrado sesión correctamente.');
@@ -70,6 +72,7 @@ class Dashboard extends Controller
             return redirect()->route('dashboard.login');
         }
 
+        // obtenemos todos los posts, paginamos
         $posts = Post::orderBy('created_at', 'desc')->paginate(15);
 
         return view('dashboard.posts.index', compact('posts'));
@@ -89,17 +92,19 @@ class Dashboard extends Controller
             return redirect()->route('dashboard.login');
         }
 
+        // validaciones
         $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
             'content' => 'required|string',
-            'thumbnail' => 'nullable|image|max:2048',
+            'thumbnail' => 'nullable|image|max:2048', // falta agregar validaciones mime type para mayor seguridad
             'type' => 'required|in:1,2',
         ]);
 
         $postData = $request->only('title', 'excerpt', 'content', 'type');
 
         if ($request->hasFile('thumbnail')) {
+            // lógica para guardar el thumbnail
             $file = $request->file('thumbnail');
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
@@ -121,6 +126,7 @@ class Dashboard extends Controller
         // guardamos el id del usuario que creo el post
         $postData['user_id'] = session('admin.id');
 
+        // guardamos en base de datos
         Post::create($postData);
 
         return redirect()->route('dashboard.posts')->with('success', 'Publicación creada correctamente.');
@@ -131,7 +137,10 @@ class Dashboard extends Controller
         if (!session('admin')) {
             return redirect()->route('dashboard.login');
         }
+
+        // consulta el post
         $post = Post::findOrFail($id);
+        
         return view('dashboard.posts.edit', compact('post'));
     }
 
@@ -140,12 +149,50 @@ class Dashboard extends Controller
         if (!session('admin')) {
             return redirect()->route('dashboard.login');
         }
-        // Aquí puedes agregar la validación y lógica para actualizar el post
-        // Ejemplo:
-        // $request->validate([...]);
-        // $post = Post::findOrFail($id);
-        // $post->update([...]);
-        return redirect()->route('dashboard.posts')->with('status', 'Publicación actualizada correctamente.');
+
+        // consulta el post
+        $post = Post::findOrFail($id);
+
+        // validaciones
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'excerpt' => 'required|string',
+            'content' => 'required|string',
+            'thumbnail' => 'nullable|image|max:2048',
+            'type' => 'required|in:1,2',
+        ]);
+
+        $postData = $request->only('title', 'excerpt', 'content', 'type');
+
+        if ($request->hasFile('thumbnail')) {
+            // Eliminar la imagen anterior si existe
+            if ($post->thumbnail) {
+                Storage::disk('public')->delete($post->thumbnail);
+            }
+
+            $file = $request->file('thumbnail');
+            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $filename = $originalFilename . '.' . $extension;
+            $path = 'thumbnails/' . $filename;
+            $counter = 1;
+
+            while (Storage::disk('public')->exists($path)) {
+                $filename = $originalFilename . '_' . $counter . '.' . $extension;
+                $path = 'thumbnails/' . $filename;
+                $counter++;
+            }
+
+            // Guardar el nuevo archivo usando el facade Storage y obtener la ruta
+            Storage::disk('public')->put($path, file_get_contents($file));
+
+            $postData['thumbnail'] = $path;
+        }
+
+        // actualizamos en base de datos
+        $post->update($postData);
+
+        return redirect()->route('dashboard.posts')->with('success', 'Publicación actualizada correctamente.');
     }
 
     public function deletePost($id)

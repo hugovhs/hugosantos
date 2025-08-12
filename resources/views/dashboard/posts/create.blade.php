@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-8 mb-3 d-flex justify-content-between align-items-center">
         <h1 class="h3 m-0">Crear Post</h1>
-        <a href="{{ route('dashboard.posts') }}" class="btn btn-outline-secondary">Volver al listado</a>
+        <a href="{{ route('dashboard.posts') }}" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Volver al listado</a>
     </div>
 
     @if ($errors->any())
@@ -63,8 +63,8 @@
                     </div>
 
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                        <a href="{{ route('dashboard.posts') }}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar</button>
+                        <a href="{{ route('dashboard.posts') }}" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancelar</a>
                     </div>
                 </form>
             </div>

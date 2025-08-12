@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Dashboard;
 
+// home routes
 Route::get('/', [Home::class, 'index'])->name('home.index');
+Route::get('/blog', [Home::class, 'blog'])->name('home.blog');
+Route::get('/blog/{slug}', [Home::class, 'blogPost'])->name('home.blog.post');
 
+// routes for admins
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('dashboard.index');
     

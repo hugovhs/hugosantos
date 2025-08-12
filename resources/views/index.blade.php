@@ -301,42 +301,24 @@
             <section class="py-20 text-center" id="blog">
                 <h2 class="text-4xl font-bold">Últimas Publicaciones</h2>
 
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach ($posts as $post)
                     <div class="post bg-[#2a2a2a] p-8 rounded-lg text-left">
                         <div class="post-image mb-4">
-                            <a href="#"><img src="{{ asset('assets/img/img_post_placeholder.jpg') }}" alt="Post 1" class="w-full h-48 object-cover rounded-lg"></a>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold">Drawing History with Wiki Unseen</h3>
-                        
-                        <p class="mt-2">This month, we celebrated Black History Month and the launch of Wiki Unseen...</p>
-                        
-                        <a href="#" class="mt-4 inline-block text-purple-400">READ MORE</a>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-8 rounded-lg text-left">
-                        <div class="post-image mb-4">
-                            <a href="#"><img src="{{ asset('assets/img/img_post_placeholder.jpg') }}" alt="Post 1" class="w-full h-48 object-cover rounded-lg"></a>
+                            <a href="{{ route('home.blog.post', $post->slug) }}"><img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover rounded-lg"></a>
                         </div>
 
-                        <h3 class="text-xl font-bold">Creatives Resolutions for 2022</h3>
-                        <p class="mt-2">For many of us, the beginning of the year signals a new start.</p>
-                        <a href="#" class="mt-4 inline-block text-purple-400">READ MORE</a>
-                    </div>
+                        <h3 class="text-xl font-bold">{{ $post->title }}</h3>
 
-                    <div class="bg-[#2a2a2a] p-8 rounded-lg text-left">
-                        <div class="post-image mb-4">
-                            <a href="#"><img src="{{ asset('assets/img/img_post_placeholder.jpg') }}" alt="Post 1" class="w-full h-48 object-cover rounded-lg"></a>
-                        </div>
+                        <p class="mt-2">{{ $post->excerpt }}</p>
 
-                        <h3 class="text-xl font-bold">Top 3 Visual Trends of 2021</h3>
-                        <p class="mt-2">We took a moment to look back and reflect on all the incredible work.</p>
-                        <a href="#" class="mt-4 inline-block text-purple-400">READ MORE</a>
+                        <a href="{{ route('home.blog.post', $post->slug) }}" class="mt-4 inline-block text-purple-400">SEGUIR LEYENDO</a>
                     </div>
+                    @endforeach
                 </div>
 
                 <div class="mt-8">
-                    <a href="#" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
+                    <a href="{{ route('home.blog') }}" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
                 </div>
             </section>
             {{-- ends latest post section --}}
