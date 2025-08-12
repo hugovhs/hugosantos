@@ -1,0 +1,89 @@
+main.login-page {
+    background-color: #1a2533;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #1f2c3b;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    color: #fff;
+}
+
+.login-container h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+    font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    color: #00a8ff;
+    font-size: 12px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.form-group .form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #4f6073;
+    border-radius: 0;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.form-group .form-control:focus {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom-color: #00a8ff;
+    color: #fff;
+}
+
+.form-group .form-control::placeholder {
+    color: #4f6073;
+}
+
+.btn-submit {
+    background-color: transparent;
+    border: none;
+    color: #00a8ff;
+    padding: 10px 0;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #00a8ff;
+    transition: width 0.3s ease;
+}
+
+.btn-submit:hover::before,
+.btn-submit:focus::before {
+    width: 100%;
+}
