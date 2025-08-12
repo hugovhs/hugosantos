@@ -44,11 +44,11 @@
 
                 <div class="flex flex-col items-center justify-center h-full -mt-12">
                     <ul class="text-center space-y-8">
-                        <li><a @click="isOpen = false" href="#home" class="text-3xl text-white hover:text-gray-400">Sobre mí</a></li>
-                        <li><a @click="isOpen = false" href="#services" class="text-3xl text-white hover:text-gray-400">Servicios</a></li>
-                        <li><a @click="isOpen = false" href="#projects" class="text-3xl text-white hover:text-gray-400">Proyectos</a></li>
-                        <li><a @click="isOpen = false" href="#blog" class="text-3xl text-white hover:text-gray-400">Blog</a></li>
-                        <li><a @click="isOpen = false" href="#contact" class="text-3xl text-white hover:text-gray-400">Contacto</a></li>
+                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#home" class="text-3xl text-white hover:text-gray-400">Sobre mí</a></li>
+                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#services" class="text-3xl text-white hover:text-gray-400">Servicios</a></li>
+                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#projects" class="text-3xl text-white hover:text-gray-400">Proyectos</a></li>
+                        <li><a @click="isOpen = false" href="{{ route('home.blog') }}" class="text-3xl text-white hover:text-gray-400">Blog</a></li>
+                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#contact" class="text-3xl text-white hover:text-gray-400">Contacto</a></li>
                     </ul>
                 </div>
             </div>
