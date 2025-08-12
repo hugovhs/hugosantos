@@ -10,11 +10,11 @@
             <!-- Desktop Menu -->
             <div class="hidden md:block">
                 <ul class="flex space-x-4">
-                    <li><a href="#home" class="hover:text-gray-400">Sobre mí</a></li>
-                    <li><a href="#services" class="hover:text-gray-400">Servicios</a></li>
-                    <li><a href="#projects" class="hover:text-gray-400">Proyectos</a></li>
-                    <li><a href="#blog" class="hover:text-gray-400">Blog</a></li>
-                    <li><a href="#contact" class="hover:text-gray-400">Contacto</a></li>
+                    <li><a href="{{ route('home.index') }}#home" class="hover:text-gray-400">Sobre mí</a></li>
+                    <li><a href="{{ route('home.index') }}#services" class="hover:text-gray-400">Servicios</a></li>
+                    <li><a href="{{ route('home.index') }}#projects" class="hover:text-gray-400">Proyectos</a></li>
+                    <li><a href="{{ route('home.blog') }}" class="hover:text-gray-400">Blog</a></li>
+                    <li><a href="{{ route('home.index') }}#contact" class="hover:text-gray-400">Contacto</a></li>
                 </ul>
             </div>
 

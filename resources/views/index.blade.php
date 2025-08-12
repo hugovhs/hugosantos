@@ -318,7 +318,7 @@
                 </div>
 
                 <div class="mt-8">
-                    <a href="#" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
+                    <a href="{{ route('home.blog') }}" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
                 </div>
             </section>
             {{-- ends latest post section --}}

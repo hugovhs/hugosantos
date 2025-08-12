@@ -92,7 +92,7 @@
 
                         <!-- Back to blog -->
                         <div class="mt-8">
-                            <a href="{{ route('home.index') }}#blog" class="inline-flex items-center gap-2 text-purple-400 hover:text-white">
+                            <a href="{{ route('home.blog') }}" class="inline-flex items-center gap-2 text-purple-400 hover:text-white">
                                 <i class="fa-solid fa-arrow-left"></i> Volver al blog
                             </a>
                         </div>
