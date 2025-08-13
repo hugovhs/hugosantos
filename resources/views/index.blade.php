@@ -152,6 +152,45 @@
             </div>
             {{-- ends experience and skills section --}}
 
+            {{-- AI tools section --}}
+            <section id="ai-tools" class="my-16">
+                <h2 class="text-3xl font-bold mb-2 text-center">HERRAMIENTAS DE IA</h2>
+                <p class="text-gray-400 text-center mb-8">Herramientas de inteligencia artificial que utilizo en mi día a día para ser más productivo.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">Github Copilot</h3>
+                        <p class="mt-2 text-gray-300">Asistente de IA para generación de código y autocompletado. Sin duda me ayuda a ser mucho más eficiente en mi trabajo diario.</p>
+                    </div>
+
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">Warp</h3>
+                        <p class="mt-2 text-gray-300">Terminal de nueva generación impulsado por IA, su modo agente puede crear proyectos completos, mi agente de código favorito.</p>
+                    </div>
+
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">ChatGPT</h3>
+                        <p class="mt-2 text-gray-300">La inteligencia artificial por excelencia, la utilizo para obtener respuestas rápidas y generar contenido de calidad.</p>
+                    </div>
+
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">Kiro</h3>
+                        <p class="mt-2 text-gray-300">Alternativa a Cursor y Copilot, ideal para crear proyectos desde la planeación, genera un plan detallado de ejecución que a la vez funciona como documentación para otras IAs y lo divide en tareas que podrá ejecutar cualquier agente o Kiro mismo.</p>
+                    </div>
+
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">Dyad</h3>
+                        <p class="mt-2 text-gray-300">Herramienta que se ejecuta de manera local, excelente para la creación de diseños y prototipos.</p>
+                    </div>
+
+                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
+                        <h3 class="text-xl font-bold">Midjourney</h3>
+                        <p class="mt-2 text-gray-300">Mi herramienta favorita para la generación de imágenes a partir de texto.</p>
+                    </div>
+                </div>
+            </section>
+            {{-- ends AI tools section --}}
+
             {{-- project stats --}}
             @php
                 $projectStats = [
