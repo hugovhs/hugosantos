@@ -36,7 +36,7 @@
                             </a>
                             
                             <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/hugosantosw/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+                                <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
                                 <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github fa-2x"></i></a>
 
                                 {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a> --}}
@@ -343,7 +343,7 @@
                         </a>
 
                         <div class="flex justify-center md:justify-start space-x-4 my-8">
-                            <a href="https://www.linkedin.com/in/hugosantosw/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
                             <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
                         </div>
                     
