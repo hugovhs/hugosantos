@@ -159,32 +159,56 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">Github Copilot</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/github_copilot.png') }}" alt="Github Copilot" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">Github Copilot</h3>
+                        </div>
+                        
                         <p class="mt-2 text-gray-300">Asistente de IA para generación de código y autocompletado. Sin duda me ayuda a ser mucho más eficiente en mi trabajo diario.</p>
                     </div>
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">Warp</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/warp.png') }}" alt="Warp" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">Warp</h3>
+                        </div>
+
                         <p class="mt-2 text-gray-300">Terminal de nueva generación impulsado por IA, su modo agente puede crear proyectos completos, mi agente de código favorito.</p>
                     </div>
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">ChatGPT</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/chat_gpt.png') }}" alt="ChatGPT" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">ChatGPT</h3>
+                        </div>
+
                         <p class="mt-2 text-gray-300">La inteligencia artificial por excelencia, la utilizo para obtener respuestas rápidas y generar contenido de calidad.</p>
                     </div>
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">Kiro</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/kiro.png') }}" alt="Kiro" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">Kiro</h3>
+                        </div>
+
                         <p class="mt-2 text-gray-300">Alternativa a Cursor y Copilot, ideal para crear proyectos desde la planeación, genera un plan detallado de ejecución que a la vez funciona como documentación para otras IAs y lo divide en tareas que podrá ejecutar cualquier agente o Kiro mismo.</p>
                     </div>
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">Dyad</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/dyad.png') }}" alt="Dyad" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">Dyad</h3>
+                        </div>
+                        
                         <p class="mt-2 text-gray-300">Herramienta que se ejecuta de manera local, excelente para la creación de diseños y prototipos.</p>
                     </div>
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <h3 class="text-xl font-bold">Midjourney</h3>
+                        <div class="flex items-center">
+                            <img src="{{ asset('assets/img/ia/midjourney.png') }}" alt="Midjourney" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
+                            <h3 class="text-xl font-bold">Midjourney</h3>
+                        </div>
+
                         <p class="mt-2 text-gray-300">Mi herramienta favorita para la generación de imágenes a partir de texto.</p>
                     </div>
                 </div>
@@ -252,7 +276,7 @@
                         <p class="text-gray-400">Trabajando con responsabilidad y confianza mutua</p>
                     </div>
                     
-                    <div class="grid grid-cols-1 max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                         @foreach($services as $service)
                         <div class="bg-[#2a2a2a] p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square transition-all duration-300 border-2 border-transparent hover:border-purple-500 cursor-pointer">
                             <div class="text-purple-400 text-4xl mb-6">{!! $service['icon'] !!}</div>

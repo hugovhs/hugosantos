@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+use App\Models\Admin;
+use Dom\Attr;
 
 class Post extends Model
 {
@@ -32,5 +36,24 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    /**
+     * Get the admin associated with the post.
+     */
+    public function adminRelation()
+    {
+        return $this->belongsTo(Admin::class, 'user_id');
+    }
+
+    /**
+     * Get the user's name (admin's name).
+     */
+    public function userName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) =>
+                $this->adminRelation->fullName ?? 'Autor anónimo'
+        );
     }
 }
