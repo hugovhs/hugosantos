@@ -15,7 +15,7 @@
                         <span class="text-gray-600">/</span>
                     </li>
                     <li>
-                        <a href="{{ route('home.index') }}#blog" class="hover:text-white">Blog</a>
+                        <a href="{{ route('home.blog') }}" class="hover:text-white">Blog</a>
                     </li>
                     <li>
                         <span class="text-gray-600">/</span>
@@ -37,14 +37,11 @@
                                 <div class="flex items-center text-gray-300 text-sm">
                                     <div class="flex items-center">
                                         <div class="w-8 h-8 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                            <i class="fa-solid fa-user text-xs"></i>
+                                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
                                         </div>
+
                                         <span>
-                                            @if($post->user)
-                                                {{ $post->user->name }}
-                                            @else
-                                                Autor anónimo
-                                            @endif
+                                           {{ $post->userName }}
                                         </span>
                                     </div>
                                     <span class="mx-3 text-gray-500">•</span>
@@ -105,16 +102,12 @@
                     <div class="mb-6 p-6 rounded-2xl bg-[#2a2a2a] border border-purple-500/20">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                <i class="fa-solid fa-user"></i>
+                                <img class="w-12 h-12 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
                             </div>
                             <div>
                                 <p class="text-sm text-gray-400">Autor</p>
                                 <h3 class="text-lg font-semibold">
-                                    @if($post->user)
-                                        {{ $post->user->name }}
-                                    @else
-                                        Autor anónimo
-                                    @endif
+                                    {{ $post->userName }}
                                 </h3>
                             </div>
                         </div>
