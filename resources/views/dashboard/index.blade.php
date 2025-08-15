@@ -1,6 +1,6 @@
 @extends('dashboard.theme.main')
 
-@section('title', 'Page title')
+@section('title', 'Home')
 
 @section('content')
 <div class="row">

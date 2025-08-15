@@ -105,16 +105,18 @@ class Dashboard extends Controller
 
         if ($request->hasFile('thumbnail')) {
             // lógica para guardar el thumbnail
+            $folder = ($postData['type'] == 1) ? 'thumbnails' : 'projects';
+
             $file = $request->file('thumbnail');
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
             $filename = $originalFilename . '.' . $extension;
-            $path = 'thumbnails/' . $filename;
+            $path = $folder . '/' . $filename;
             $counter = 1;
 
             while (Storage::disk('public')->exists($path)) {
                 $filename = $originalFilename . '_' . $counter . '.' . $extension;
-                $path = 'thumbnails/' . $filename;
+                $path = $folder . '/' . $filename;
                 $counter++;
             }
             
@@ -170,16 +172,18 @@ class Dashboard extends Controller
                 Storage::disk('public')->delete($post->thumbnail);
             }
 
+            $folder = ($postData['type'] == 1) ? 'thumbnails' : 'projects';
+
             $file = $request->file('thumbnail');
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
             $filename = $originalFilename . '.' . $extension;
-            $path = 'thumbnails/' . $filename;
+            $path = $folder . '/' . $filename;
             $counter = 1;
 
             while (Storage::disk('public')->exists($path)) {
                 $filename = $originalFilename . '_' . $counter . '.' . $extension;
-                $path = 'thumbnails/' . $filename;
+                $path = $folder . '/' . $filename;
                 $counter++;
             }
 
