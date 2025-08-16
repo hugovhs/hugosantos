@@ -1,8 +1,8 @@
 @extends('theme.main')
 
 @section('meta_description', $project->excerpt)
-
 @section('title', $project->title)
+@section('og_image', asset('storage/' . $project->thumbnail))
 
 @section('content')
     <div class="bg-[#1e1e1e] text-white">

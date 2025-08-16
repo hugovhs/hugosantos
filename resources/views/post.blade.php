@@ -1,8 +1,9 @@
 @extends('theme.main')
 
 @section('meta_description', $post->excerpt);
-
 @section('title', $post->title)
+@section('og_image', asset('storage/' . $post->thumbnail))
+@section('og_type', 'article')
 
 @section('content')
     <div class="bg-[#1e1e1e] text-white">
