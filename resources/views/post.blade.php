@@ -1,5 +1,7 @@
 @extends('theme.main')
 
+@section('meta_description', $post->excerpt);
+
 @section('title', $post->title)
 
 @section('content')
@@ -151,13 +153,21 @@
                     <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-800/40 to-purple-900/40 border border-purple-500/30">
                         <h3 class="text-xl font-semibold mb-2">Suscríbete</h3>
                         <p class="text-gray-300 text-sm mb-4">Recibe nuevas publicaciones directamente en tu correo.</p>
-                        <form class="space-y-3" onsubmit="event.preventDefault(); this.querySelector('button').innerText='¡Gracias!';">
-                            <input type="email" required placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg bg-[#1e1e1e] border border-purple-500/30 focus:border-purple-400 focus:outline-none" />
-                            <button class="w-full px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Suscribirme</button>
+                        
+                        <form class="space-y-3" id="subscribe-form">
+                            <input type="email" id="subscribe-email" name="subscribe-email" required placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg bg-[#1e1e1e] border border-purple-500/30 focus:border-purple-400 focus:outline-none" />
+                            <button type="submit" id="subscribe-button" class="w-full px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Suscribirme</button>
+
+                            <div id="subscribe-success" class="hidden mt-2 text-sm text-green-500"></div>
+                            <div id="subscribe-error" class="hidden mt-2 text-sm text-red-500"></div>
                         </form>
                     </div>
                 </aside>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('assets/js/subscribe-form.js') }}" defer></script>
 @endsection

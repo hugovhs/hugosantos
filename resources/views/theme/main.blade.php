@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {{-- meta tags --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="@yield('meta_description', 'Hugo Santos Dev - Experiencia, proyectos y blog, conoce mi trabajo. Soy full stack developer con más de 12 años de experiencia.')">
         <meta name="keywords" content="@yield('meta_keywords', 'Hugo Santos, desarrollador, developer, portafolio, blog, desarrollo web, full stack')">
         <meta name="author" content="hugovhs.dev">
