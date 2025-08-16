@@ -31,4 +31,20 @@ class Home extends Controller
 
         return view('post', compact('post'));
     }
+
+    // projects view
+    public function projects()
+    {
+        $projects = Post::where('type', 2)->orderBy('created_at', 'desc')->paginate(12);
+
+        return view('projects', compact('projects'));
+    }
+
+    // project post view
+    public function project($slug)
+    {
+        $project = Post::where('slug', $slug)->firstOrFail();
+
+        return view('project', compact('project'));
+    }
 }

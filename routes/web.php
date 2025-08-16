@@ -6,8 +6,14 @@ use App\Http\Controllers\Dashboard;
 
 // home routes
 Route::get('/', [Home::class, 'index'])->name('home.index');
+
+// Blog
 Route::get('/blog', [Home::class, 'blog'])->name('home.blog');
 Route::get('/blog/{slug}', [Home::class, 'blogPost'])->name('home.blog.post');
+
+// Projects
+Route::get('/projects', [Home::class, 'projects'])->name('home.projects');
+Route::get('/projects/{slug}', [Home::class, 'project'])->name('home.project');
 
 // routes for admins
 Route::prefix('dashboard')->group(function () {
