@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactForm;
+
+// MOdels
 use App\Models\Post;
 use App\Models\Subscriber;
 
@@ -69,5 +73,20 @@ class Home extends Controller
         ]);
 
         return response()->json(['message' => 'Te has suscrito correctamente.']);
+    }
+
+    public function contactForm(Request $request)
+    {
+        // validamos los datos
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|max:5000',
+        ]);
+
+        // enviamos el correo
+        Mail::to('info@wibrante.com')->send(new ContactForm($request->all()));
+
+        return response()->json(['message' => 'Mensaje enviado correctamente, en breve me pondré en contacto.']);
     }
 }

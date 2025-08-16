@@ -19,6 +19,9 @@ use App\Http\Controllers\Dashboard;
     // Subscribe
     Route::post('/subscribe', [Home::class, 'subscribe'])->name('home.subscribe');
 
+    // contact form
+    Route::post('/contact-form', [Home::class, 'contactForm'])->name('home.contact-form');
+
 // routes for admins
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('dashboard.index');

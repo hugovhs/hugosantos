@@ -413,24 +413,28 @@
                         <h2 class="text-4xl font-bold mb-4">Contacta <span class="text-purple-400">Me.</span></h2>
                         
                         <form class="space-y-8" id="contact-form">
+                            @csrf
                             <input 
                                 type="text" 
+                                name="name"
                                 placeholder="Tu nombre *" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
                             >
 
                             <input 
                                 type="email" 
+                                name="email"
                                 placeholder="Tu correo electrónico *" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
                             >
 
                             <textarea 
+                                name="message"
                                 placeholder="Déjame un mensaje" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-32 w-full"
                             ></textarea>
 
-                            <button class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
+                            <button type="submit" class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
                         </form>
                     </div>
                 </div>
@@ -438,4 +442,8 @@
             {{-- ends contact section --}}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/js/contact-form.js') }}"></script>
 @endsection
