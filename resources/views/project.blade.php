@@ -121,7 +121,7 @@
                                     <a href="https://x.com/hugovhs1" class="text-gray-300 hover:text-white">
                                         <i class="fa-brands fa-twitter"></i>
                                     </a>
-                                </li> 
+                                </li>
                             </ul>
                         </div>
                     </div>

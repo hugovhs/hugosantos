@@ -111,7 +111,40 @@
                                 </h3>
                             </div>
                         </div>
-                        <p class="text-gray-400 text-sm">Gracias por leer. Si te gustó, compártelo y sígueme para más contenido.</p>
+                        
+                        <p class="text-gray-400 text-sm">
+                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de 12 años de experiencia en el desarrollo web y móvil.
+                        </p>
+
+                        <div class="mt-4">
+                            <h4 class="text-sm font-semibold text-gray-400">Enlaces:</h4>
+                            
+                            <ul class="flex space-x-4">
+                                <li>
+                                    <a href="https://github.com/hugovhs" class="text-gray-300 hover:text-white">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-300 hover:text-white">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="https://x.com/hugovhs1" class="text-gray-300 hover:text-white">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="mailto:hugosantos@wibrante.com">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Newsletter -->
