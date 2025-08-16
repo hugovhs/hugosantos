@@ -38,6 +38,7 @@
                             <div class="flex space-x-4">
                                 <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
                                 <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github fa-2x"></i></a>
+                                <a href="https://x.com/hugovhs1" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-2x"></i></a>
 
                                 {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a> --}}
                                 {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a> --}}
@@ -293,42 +294,26 @@
                 <h2 class="text-4xl font-bold">Proyectos recientes</h2>
                 
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    @foreach($projects as $project)
                     <div class="project bg-[#2a2a2a] rounded-lg">
                         <div class="project-image">
-                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 1" class="w-full h-full object-cover rounded-lg">
+                            <a href="{{ route('home.project', $project->slug) }}"><img src="{{ asset('storage/' . $project->thumbnail) }}" alt="Work 1" class="w-full h-full object-cover rounded-lg"></a>
                         </div>
 
                         <div class="project-name py-3">
-                            <h3 class="text-xl font-bold mt-2">Proyecto 1</h3>
-                            <p class="text-gray-400">Descripción breve del proyecto 1.</p>
+                            <h3 class="text-xl font-bold mt-2">{{ $project->title }}</h3>
+                            <p class="text-gray-400">{{ $project->excerpt }}</p>
+                        </div>
+
+                        <div class="project-actions py-4">
+                            <a href="{{ route('home.project', $project->slug) }}" class="bg-purple-600 text-white rounded-full px-4 py-2 text-sm font-bold">VER DETALLES</a>
                         </div>
                     </div>
-
-                    <div class="project bg-[#2a2a2a] rounded-lg">
-                        <div class="project-image">
-                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 2" class="w-full h-full object-cover rounded-lg">
-                        </div>
-
-                        <div class="project-name py-3">
-                            <h3 class="text-xl font-bold mt-2">Proyecto 2</h3>
-                            <p class="text-gray-400">Descripción breve del proyecto 2.</p>
-                        </div>
-                    </div>
-
-                    <div class="project bg-[#2a2a2a] rounded-lg">
-                        <div class="project-image">
-                            <img src="{{ asset('assets/img/csharp.png') }}" alt="Work 3" class="w-full h-full object-cover rounded-lg">
-                        </div>
-
-                        <div class="project-name py-3">
-                            <h3 class="text-xl font-bold mt-2">Proyecto 3</h3>
-                            <p class="text-gray-400">Descripción breve del proyecto 3.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="mt-8">
-                    <a href="#" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PROYECTOS</a>
+                    <a href="{{ route('home.projects') }}" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PROYECTOS</a>
                 </div>
             </section>
 
@@ -408,6 +393,7 @@
                         <div class="flex justify-center md:justify-start space-x-4 my-8">
                             <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
                             <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+                            <a href="https://x.com/hugovhs1" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
                         </div>
                     
                         <div class="space-y-4">
@@ -427,24 +413,28 @@
                         <h2 class="text-4xl font-bold mb-4">Contacta <span class="text-purple-400">Me.</span></h2>
                         
                         <form class="space-y-8" id="contact-form">
+                            @csrf
                             <input 
                                 type="text" 
+                                name="name"
                                 placeholder="Tu nombre *" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
                             >
 
                             <input 
                                 type="email" 
+                                name="email"
                                 placeholder="Tu correo electrónico *" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
                             >
 
                             <textarea 
+                                name="message"
                                 placeholder="Déjame un mensaje" 
                                 class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-32 w-full"
                             ></textarea>
 
-                            <button class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
+                            <button type="submit" class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
                         </form>
                     </div>
                 </div>
@@ -452,4 +442,8 @@
             {{-- ends contact section --}}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/js/contact-form.js') }}"></script>
 @endsection

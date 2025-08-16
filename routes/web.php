@@ -4,10 +4,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\Dashboard;
 
-// home routes
-Route::get('/', [Home::class, 'index'])->name('home.index');
-Route::get('/blog', [Home::class, 'blog'])->name('home.blog');
-Route::get('/blog/{slug}', [Home::class, 'blogPost'])->name('home.blog.post');
+/* home routes */
+    // home
+    Route::get('/', [Home::class, 'index'])->name('home.index');
+
+    // Blog
+    Route::get('/blog', [Home::class, 'blog'])->name('home.blog');
+    Route::get('/blog/{slug}', [Home::class, 'blogPost'])->name('home.blog.post');
+
+    // Projects
+    Route::get('/projects', [Home::class, 'projects'])->name('home.projects');
+    Route::get('/projects/{slug}', [Home::class, 'project'])->name('home.project');
+
+    // Subscribe
+    Route::post('/subscribe', [Home::class, 'subscribe'])->name('home.subscribe');
+
+    // contact form
+    Route::post('/contact-form', [Home::class, 'contactForm'])->name('home.contact-form');
 
 // routes for admins
 Route::prefix('dashboard')->group(function () {

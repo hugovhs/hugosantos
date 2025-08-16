@@ -1,9 +1,8 @@
 @extends('theme.main')
 
-@section('meta_description', $post->excerpt);
-@section('title', $post->title)
-@section('og_image', asset('storage/' . $post->thumbnail))
-@section('og_type', 'article')
+@section('meta_description', $project->excerpt)
+@section('title', $project->title)
+@section('og_image', asset('storage/' . $project->thumbnail))
 
 @section('content')
     <div class="bg-[#1e1e1e] text-white">
@@ -18,12 +17,12 @@
                         <span class="text-gray-600">/</span>
                     </li>
                     <li>
-                        <a href="{{ route('home.blog') }}" class="hover:text-white">Blog</a>
+                        <a href="{{ route('home.projects') }}" class="hover:text-white">Proyectos</a>
                     </li>
                     <li>
                         <span class="text-gray-600">/</span>
                     </li>
-                    <li class="text-gray-300 truncate max-w-[50vw]">{{ $post->title }}</li>
+                    <li class="text-gray-300 truncate max-w-[50vw]">{{ $project->title }}</li>
                 </ol>
             </nav>
 
@@ -35,65 +34,44 @@
                         <header class="mb-6">
                             <div class="bg-gradient-to-br from-purple-800/40 to-cyan-700/30 rounded-2xl p-6 border border-purple-500/20">
                                 <h1 class="font-extrabold text-2xl sm:text-3xl leading-tight mb-3">
-                                    {{ $post->title }}
+                                    {{ $project->title }}
                                 </h1>
                                 <div class="flex items-center text-gray-300 text-sm">
                                     <div class="flex items-center">
                                         <div class="w-8 h-8 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
+                                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $project->userName }}">
                                         </div>
 
                                         <span>
-                                           {{ $post->userName }}
+                                           {{ $project->userName }}
                                         </span>
                                     </div>
                                     <span class="mx-3 text-gray-500">•</span>
-                                    <time datetime="{{ $post->created_at }}" class="text-gray-400">
-                                        {{ $post->created_at->format('d F, Y') }}
+                                    <time datetime="{{ $project->created_at }}" class="text-gray-400">
+                                        {{ $project->created_at->format('d F, Y') }}
                                     </time>
                                 </div>
                             </div>
                         </header>
 
                         <!-- Cover image -->
-                        @if($post->thumbnail)
+                        @if($project->thumbnail)
                             <figure class="mb-6">
-                                <img class="w-full h-auto rounded-2xl shadow-lg border border-purple-500/20" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                                <img class="w-full h-auto rounded-2xl shadow-lg border border-purple-500/20" src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}">
                             </figure>
                         @endif
 
                         <!-- Content -->
                         <section class="mb-8 leading-relaxed text-gray-200 text-lg space-y-6">
-                            {!! $post->content !!}
+                            {!! $project->content !!}
                         </section>
 
-                        <!-- Share -->
-                        @php
-                            $shareUrl = urlencode(request()->fullUrl());
-                            $shareText = urlencode($post->title);
-                        @endphp
-                        <div class="mt-10 p-5 rounded-xl bg-[#2a2a2a] border border-purple-500/20">
-                            <h3 class="text-xl font-semibold mb-4">Comparte este artículo</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white" href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}">
-                                    <i class="fa-brands fa-x-twitter"></i> X
-                                </a>
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-700 hover:bg-blue-800 text-white" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}">
-                                    <i class="fa-brands fa-facebook"></i> Facebook
-                                </a>
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-700 hover:bg-sky-800 text-white" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}">
-                                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                                </a>
-                                <button type="button" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white" onclick="navigator.clipboard.writeText(decodeURIComponent('{{ $shareUrl }}')); this.innerText='Copiado'; setTimeout(()=>this.innerText='Copiar enlace',1500);">
-                                    Copiar enlace
-                                </button>
-                            </div>
-                        </div>
+                        <hr class="my-8 border-gray-700">
 
-                        <!-- Back to blog -->
+                        <!-- Back to projects -->
                         <div class="mt-8">
-                            <a href="{{ route('home.blog') }}" class="inline-flex items-center gap-2 text-purple-400 hover:text-white">
-                                <i class="fa-solid fa-arrow-left"></i> Volver al blog
+                            <a href="{{ route('home.projects') }}" class="inline-flex items-center gap-2 text-purple-400 hover:text-white">
+                                <i class="fa-solid fa-arrow-left"></i> Volver a los proyectos
                             </a>
                         </div>
                     </article>
@@ -105,23 +83,29 @@
                     <div class="mb-6 p-6 rounded-2xl bg-[#2a2a2a] border border-purple-500/20">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                <img class="w-12 h-12 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
+                                <img class="w-12 h-12 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $project->userName }}">
                             </div>
                             <div>
-                                <p class="text-sm text-gray-400">Autor</p>
+                                <p class="text-sm text-gray-400">Developer</p>
                                 <h3 class="text-lg font-semibold">
-                                    {{ $post->userName }}
+                                    {{ $project->userName }}
                                 </h3>
                             </div>
                         </div>
                         
                         <p class="text-gray-400 text-sm">
-                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de 12 años de experiencia en el desarrollo web y móvil.
+                            <strong>Trabajemos juntos.</strong> Si tienes algún proyecto o idea en mente, será para mi un placer colaborar contigo.
                         </p>
+
+                        {{-- contacts and social networks --}}
+                        <div class="mt-4">
+                            <h4 class="text-sm font-semibold text-gray-400">Contacto:</h4>
+                            <p class="text-gray-300 text-sm"><i class="fa-solid fa-envelope"></i> <a href="mailto:hugosantos@wibrante.com">hugosantos@wibrante.com</a></p>
+                            <p class="text-gray-300 text-sm"><i class="fa-solid fa-phone"></i> <i class="fa-brands fa-whatsapp"></i> 33 51 24 07 03</p>
+                        </div>
 
                         <div class="mt-4">
                             <h4 class="text-sm font-semibold text-gray-400">Enlaces:</h4>
-                            
                             <ul class="flex space-x-4">
                                 <li>
                                     <a href="https://github.com/hugovhs" class="text-gray-300 hover:text-white">
@@ -140,12 +124,6 @@
                                         <i class="fa-brands fa-twitter"></i>
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="mailto:hugosantos@wibrante.com">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -153,7 +131,7 @@
                     <!-- Newsletter -->
                     <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-800/40 to-purple-900/40 border border-purple-500/30">
                         <h3 class="text-xl font-semibold mb-2">Suscríbete</h3>
-                        <p class="text-gray-300 text-sm mb-4">Recibe nuevas publicaciones directamente en tu correo.</p>
+                        <p class="text-gray-300 text-sm mb-4">Recibe publicaciones y noticias sobre el mundo del desarrollo directamente en tu correo.</p>
                         
                         <form class="space-y-3" id="subscribe-form">
                             <input type="email" id="subscribe-email" name="subscribe-email" required placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg bg-[#1e1e1e] border border-purple-500/30 focus:border-purple-400 focus:outline-none" />
