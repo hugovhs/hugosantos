@@ -28,7 +28,7 @@
                         
                         <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
                             <a 
-                                href="{{ asset('assets/pdf/cv_hugo_santos_2025.pdf') }}" 
+                                href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" 
                                 target="_blank" 
                                 class="bg-purple-600 hover:bg-purple-700 rounded-full px-6 py-4 text-md font-bold"
                             >
@@ -63,7 +63,7 @@
                     ['icon' => '<i class="fa-brands fa-magento fa-2x"></i>', 'label' => 'Adobe Commerce Developer', 'value' => 'Certificado por Adobe'],
                     ['icon' => '<i class="fa-brands fa-laravel fa-2x"></i>', 'label' => 'Laravel, PHP', 'value' => '+12 años de experiencia'],
                     ['icon' => '<i class="fa-brands fa-flutter fa-2x"></i>', 'label' => 'Flutter', 'value' => 'APPs multiplataforma'],
-                    ['icon' => '<i class="fa-brands fa-microsoft fa-2x"></i>', 'label' => 'C#', 'value' => 'ASP.NET']
+                    ['icon' => '<i class="fa-brands fa-microsoft fa-2x"></i>', 'label' => 'C#', 'value' => '.NET']
                 ];
             @endphp
 
@@ -110,7 +110,7 @@
 
                     $skills = [
                         [ 'name' => 'PHP (Laravel, Magento, Adobe Commerce)', 'level' => 90, 'icon' => '<i class="fa-brands fa-php text-purple-400"></i>' ],
-                        [ 'name' => 'C# (ASP.NET)', 'level' => 85, 'icon' => '<i class="fa-brands fa-microsoft text-purple-400"></i>' ],
+                        [ 'name' => 'C# (.NET)', 'level' => 85, 'icon' => '<i class="fa-brands fa-microsoft text-purple-400"></i>' ],
                         [ 'name' => 'Flutter', 'level' => 80, 'icon' => '<i class="fa-brands fa-flutter text-purple-400"></i>' ],
                         [ 'name' => 'JavaScript (NodeJS, React, JQuery)', 'level' => 95, 'icon' => '<i class="fa-brands fa-js text-purple-400"></i>' ],
                         [ 'name' => 'HTML, CSS', 'level' => 90, 'icon' => '<i class="fa-brands fa-html5 text-purple-400"></i>' ],
@@ -383,7 +383,7 @@
                         <p class="text-gray-400 mb-4">FULL STACK DEVELOPER</p>
 
                         <a 
-                            href="{{ asset('assets/pdf/cv_hugo_santos_2025.pdf') }}" 
+                            href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" 
                             target="_blank" 
                             class="border-purple-500 text-purple-500 hover:bg-purple-500 bg-white hover:text-white rounded-full px-8"
                         >
