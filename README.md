@@ -1,4 +1,4 @@
-<p align="center"><a href="https://dev.hugosantos.com.mx" target="_blank"><img src="https://dev.hugosantos.com.mx/assets/img/hugo_santos_icon.png" width="320" alt="Hugo Santos Dev"></a></p>
+<p align="center"><a href="https://hugovhs.dev" target="_blank"><img src="https://hugovhs.dev/assets/img/hugo_santos_icon.png" width="320" alt="Hugo Santos Dev"></a></p>
 
 <p align="center">Hugo Santos Dev</p>
 
@@ -9,7 +9,7 @@ También he decidio crear un blog para compartir algunos de mis conocimientos y 
 
 Y que mejor forma de compartir esto a través de un proyecto real, he creado un proyecto completo con frontend, backend y base de datos y lo he hecho público para que no solo conozcan mi trabajo sino como lo realizo.
 
-Puedes ver este sitio en línea en: (url por definir)
+Puedes ver este sitio en línea en: [hugovhs.dev](https://hugovhs.dev)
 
 ## Tecnologías utilizadas
 
