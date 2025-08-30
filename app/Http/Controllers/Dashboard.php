@@ -11,6 +11,17 @@ use App\Models\Post;
 
 class Dashboard extends Controller
 {
+    /**
+     * Show the login form.
+     */
+    public function login()
+    {
+        return view('dashboard.login');
+    }
+
+    /**
+     * Show the dashboard index.
+     */
     public function index()
     {
         if (!session('admin')) {
@@ -20,11 +31,9 @@ class Dashboard extends Controller
         return view('dashboard.index');
     }
 
-    public function login()
-    {
-        return view('dashboard.login');
-    }
-
+    /**
+     * Handle the login form submission.
+     */
     public function loginPost(Request $request)
     {
         // add validation
@@ -56,6 +65,9 @@ class Dashboard extends Controller
         ]);
     }
 
+    /**
+     * Handle the logout action.
+     */
     public function logout()
     {
         session()->forget('admin');
@@ -66,6 +78,9 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.login')->with('status', 'Has cerrado sesión correctamente.');
     }
 
+    /**
+     * Show the posts page.
+     */
     public function posts()
     {
         if (!session('admin')) {
@@ -78,6 +93,9 @@ class Dashboard extends Controller
         return view('dashboard.posts.index', compact('posts'));
     }
 
+    /**
+     * Show the create post form.
+     */
     public function createPost()
     {
         if (!session('admin')) {
@@ -86,6 +104,9 @@ class Dashboard extends Controller
         return view('dashboard.posts.create');
     }
 
+    /**
+     * Handle the create post form submission.
+     */
     public function storePost(Request $request)
     {
         if (!session('admin')) {
@@ -134,6 +155,9 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.posts')->with('success', 'Publicación creada correctamente.');
     }
 
+    /**
+     * Show the edit post form.
+     */
     public function editPost($id)
     {
         if (!session('admin')) {
@@ -146,6 +170,9 @@ class Dashboard extends Controller
         return view('dashboard.posts.edit', compact('post'));
     }
 
+    /**
+     * Handle the update post form submission.
+     */
     public function updatePost(Request $request, $id)
     {
         if (!session('admin')) {
@@ -199,6 +226,9 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.posts')->with('success', 'Publicación actualizada correctamente.');
     }
 
+    /**
+     * Handle the delete post action.
+     */
     public function deletePost($id)
     {
         if (!session('admin')) {

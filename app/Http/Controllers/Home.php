@@ -12,7 +12,9 @@ use App\Models\Subscriber;
 
 class Home extends Controller
 {
-    // index view
+    /**
+     * Show the index page with the latest posts and projects.
+     */
     public function index()
     {
         $posts = Post::where('type', 1)->orderBy('created_at', 'desc')->take(6)->get();
@@ -21,7 +23,9 @@ class Home extends Controller
         return view('index', compact('posts', 'projects'));
     }
 
-    // blog view
+    /**
+     * Show the blog page with a list of posts.
+     */
     public function blog()
     {
         $posts = Post::where('type', 1)->orderBy('created_at', 'desc')->paginate(12);
@@ -29,7 +33,9 @@ class Home extends Controller
         return view('blog', compact('posts'));
     }
 
-    // blog post view
+    /**
+     * Show a single and complete post.
+     */
     public function blogPost($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
@@ -37,7 +43,9 @@ class Home extends Controller
         return view('post', compact('post'));
     }
 
-    // projects view
+    /**
+     * Show the projects page with a list of projects.
+     */
     public function projects()
     {
         $projects = Post::where('type', 2)->orderBy('created_at', 'desc')->paginate(12);
@@ -45,7 +53,9 @@ class Home extends Controller
         return view('projects', compact('projects'));
     }
 
-    // project post view
+    /**
+     * Show a single and complete project.
+     */
     public function project($slug)
     {
         $project = Post::where('slug', $slug)->firstOrFail();
@@ -53,7 +63,9 @@ class Home extends Controller
         return view('project', compact('project'));
     }
 
-    // subscribe controller
+    /**
+     * Subscribe a user to the newsletter.
+     */
     public function subscribe(Request $request)
     {
         // validamos email
@@ -75,6 +87,9 @@ class Home extends Controller
         return response()->json(['message' => 'Te has suscrito correctamente.']);
     }
 
+    /**
+     * Handle the contact form submission.
+     */
     public function contactForm(Request $request)
     {
         // validamos los datos
