@@ -23,13 +23,13 @@ use App\Http\Controllers\Dashboard;
     Route::post('/contact-form', [Home::class, 'contactForm'])->name('home.contact-form');
 
 // routes for admins
-Route::prefix('dashboard')->group(function () {
+Route::middleware('dashboardSession')->prefix('dashboard')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('dashboard.index');
     
     // login
-    Route::get('/login', [Dashboard::class, 'login'])->name('dashboard.login');
-    Route::post('/login', [Dashboard::class, 'loginPost'])->name('dashboard.login.post');
-    Route::get('/logout', [Dashboard::class, 'logout'])->name('dashboard.logout');
+    Route::get('/login', [Dashboard::class, 'login'])->name('dashboard.login')->withoutMiddleware('dashboardSession');
+    Route::post('/login', [Dashboard::class, 'loginPost'])->name('dashboard.login.post')->withoutMiddleware('dashboardSession');
+    Route::get('/logout', [Dashboard::class, 'logout'])->name('dashboard.logout')->withoutMiddleware('dashboardSession');
 
     // blog and projects posts
     Route::get('/posts', [Dashboard::class, 'posts'])->name('dashboard.posts');

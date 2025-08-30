@@ -11,20 +11,25 @@ use App\Models\Post;
 
 class Dashboard extends Controller
 {
-    public function index()
-    {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
-        return view('dashboard.index');
-    }
-
+    /**
+     * Show the login form.
+     */
     public function login()
     {
         return view('dashboard.login');
     }
 
+    /**
+     * Show the dashboard index.
+     */
+    public function index()
+    {
+        return view('dashboard.index');
+    }
+
+    /**
+     * Handle the login form submission.
+     */
     public function loginPost(Request $request)
     {
         // add validation
@@ -56,6 +61,9 @@ class Dashboard extends Controller
         ]);
     }
 
+    /**
+     * Handle the logout action.
+     */
     public function logout()
     {
         session()->forget('admin');
@@ -66,32 +74,30 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.login')->with('status', 'Has cerrado sesión correctamente.');
     }
 
+    /**
+     * Show the posts page.
+     */
     public function posts()
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // obtenemos todos los posts, paginamos
         $posts = Post::orderBy('created_at', 'desc')->paginate(15);
 
         return view('dashboard.posts.index', compact('posts'));
     }
 
+    /**
+     * Show the create post form.
+     */
     public function createPost()
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
         return view('dashboard.posts.create');
     }
 
+    /**
+     * Handle the create post form submission.
+     */
     public function storePost(Request $request)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // validaciones
         $request->validate([
             'title' => 'required|string|max:255',
@@ -134,24 +140,22 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.posts')->with('success', 'Publicación creada correctamente.');
     }
 
+    /**
+     * Show the edit post form.
+     */
     public function editPost($id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // consulta el post
         $post = Post::findOrFail($id);
         
         return view('dashboard.posts.edit', compact('post'));
     }
 
+    /**
+     * Handle the update post form submission.
+     */
     public function updatePost(Request $request, $id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // consulta el post
         $post = Post::findOrFail($id);
 
@@ -199,11 +203,11 @@ class Dashboard extends Controller
         return redirect()->route('dashboard.posts')->with('success', 'Publicación actualizada correctamente.');
     }
 
+    /**
+     * Handle the delete post action.
+     */
     public function deletePost($id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
         // Aquí puedes agregar la lógica para eliminar el post
         // Ejemplo:
         // $post = Post::findOrFail($id);
