@@ -24,10 +24,6 @@ class Dashboard extends Controller
      */
     public function index()
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         return view('dashboard.index');
     }
 
@@ -83,10 +79,6 @@ class Dashboard extends Controller
      */
     public function posts()
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // obtenemos todos los posts, paginamos
         $posts = Post::orderBy('created_at', 'desc')->paginate(15);
 
@@ -98,9 +90,6 @@ class Dashboard extends Controller
      */
     public function createPost()
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
         return view('dashboard.posts.create');
     }
 
@@ -109,10 +98,6 @@ class Dashboard extends Controller
      */
     public function storePost(Request $request)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // validaciones
         $request->validate([
             'title' => 'required|string|max:255',
@@ -160,10 +145,6 @@ class Dashboard extends Controller
      */
     public function editPost($id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // consulta el post
         $post = Post::findOrFail($id);
         
@@ -175,10 +156,6 @@ class Dashboard extends Controller
      */
     public function updatePost(Request $request, $id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
-
         // consulta el post
         $post = Post::findOrFail($id);
 
@@ -231,9 +208,6 @@ class Dashboard extends Controller
      */
     public function deletePost($id)
     {
-        if (!session('admin')) {
-            return redirect()->route('dashboard.login');
-        }
         // Aquí puedes agregar la lógica para eliminar el post
         // Ejemplo:
         // $post = Post::findOrFail($id);
