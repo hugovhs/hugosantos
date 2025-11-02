@@ -188,15 +188,6 @@
 
                     <div class="bg-[#2a2a2a] p-6 rounded-lg">
                         <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/kiro.png') }}" alt="Kiro" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">Kiro</h3>
-                        </div>
-
-                        <p class="mt-2 text-gray-300">Alternativa a Cursor y Copilot, ideal para crear proyectos desde la planeación, genera un plan detallado de ejecución que a la vez funciona como documentación para otras IAs y lo divide en tareas que podrá ejecutar cualquier agente o Kiro mismo.</p>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
                             <img src="{{ asset('assets/img/ia/dyad.png') }}" alt="Dyad" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
                             <h3 class="text-xl font-bold">Dyad</h3>
                         </div>
