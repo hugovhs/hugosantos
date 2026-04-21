@@ -22,7 +22,7 @@
                         </h1>
                         
                         <p class="text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
-                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Con más de 12 años de experiencia en el desarrollo web y móvil, 
+                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Con más de {{ date('Y') - 2013 }} años de experiencia en el desarrollo web y móvil, 
                             he trabajado en una gran variedad de proyectos. Mi enfoque es siempre en la calidad del código y la experiencia del usuario.
                         </p>
                         
@@ -49,7 +49,7 @@
                     <div class="md:w-1/3 mt-10 md:mt-0">
                         <div class="relative p-1 border border-purple-500/30 rounded-3xl bg-black/10 backdrop-blur-sm">
                             <div class="relative p-1 border border-purple-500/30 rounded-3xl">
-                                <img src="{{ asset('assets/img/cv_foto.jpg') }}" alt="Hugo Santos Dev" class="rounded-2xl w-full" />
+                                <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Hugo Santos Dev" class="rounded-2xl w-full" />
                             </div>
                         </div>
                     </div>
@@ -109,10 +109,10 @@
                     ];
 
                     $skills = [
-                        [ 'name' => 'PHP (Laravel, Magento, Adobe Commerce)', 'level' => 90, 'icon' => '<i class="fa-brands fa-php text-purple-400"></i>' ],
+                        [ 'name' => 'PHP (Laravel, Magento 2, Adobe Commerce)', 'level' => 90, 'icon' => '<i class="fa-brands fa-php text-purple-400"></i>' ],
                         [ 'name' => 'C# (.NET)', 'level' => 85, 'icon' => '<i class="fa-brands fa-microsoft text-purple-400"></i>' ],
                         [ 'name' => 'Flutter', 'level' => 80, 'icon' => '<i class="fa-brands fa-flutter text-purple-400"></i>' ],
-                        [ 'name' => 'JavaScript (NodeJS, React, JQuery)', 'level' => 95, 'icon' => '<i class="fa-brands fa-js text-purple-400"></i>' ],
+                        [ 'name' => 'JavaScript (NodeJS, Vue.js, JQuery)', 'level' => 95, 'icon' => '<i class="fa-brands fa-js text-purple-400"></i>' ],
                         [ 'name' => 'HTML, CSS', 'level' => 90, 'icon' => '<i class="fa-brands fa-html5 text-purple-400"></i>' ],
                     ];
                 @endphp
@@ -280,34 +280,6 @@
             </section>
             {{-- ends services section --}}
 
-            <!-- My Work Section -->
-            <section class="py-20 text-center" id="projects">
-                <h2 class="text-4xl font-bold">Proyectos recientes</h2>
-                
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    @foreach($projects as $project)
-                    <div class="project bg-[#2a2a2a] rounded-lg">
-                        <div class="project-image">
-                            <a href="{{ route('home.project', $project->slug) }}"><img src="{{ asset('storage/' . $project->thumbnail) }}" alt="Work 1" class="w-full h-full object-cover rounded-lg"></a>
-                        </div>
-
-                        <div class="project-name py-3">
-                            <h3 class="text-xl font-bold mt-2">{{ $project->title }}</h3>
-                            <p class="text-gray-400">{{ $project->excerpt }}</p>
-                        </div>
-
-                        <div class="project-actions py-4">
-                            <a href="{{ route('home.project', $project->slug) }}" class="bg-purple-600 text-white rounded-full px-4 py-2 text-sm font-bold">VER DETALLES</a>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div class="mt-8">
-                    <a href="{{ route('home.projects') }}" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PROYECTOS</a>
-                </div>
-            </section>
-
             <!-- Testimonials Section -->
             <section id="testimonials" class="my-16 p-8 md:p-16 bg-gradient-to-br from-purple-800/80 to-purple-900/80 rounded-2xl">
                 <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -389,8 +361,10 @@
                     
                         <div class="space-y-4">
                             <div>
-                                <p class="text-gray-400">Teléfono personal:</p>
-                                <p class="text-lg font-semibold">33 51 24 07 03</p>
+                                <p class="text-gray-400">Teléfonos personales:</p>
+
+                                <p class="text-lg font-semibold"><i class="fab fa-whatsapp"></i> 33 19 15 62 60</p>
+                                <p class="text-lg font-semibold"><i class="fab fa-whatsapp"></i> 33 51 24 07 03</p>
                             </div>
 
                             <div>

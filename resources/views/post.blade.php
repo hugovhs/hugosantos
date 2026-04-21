@@ -116,7 +116,7 @@
                         </div>
                         
                         <p class="text-gray-400 text-sm">
-                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de 12 años de experiencia en el desarrollo web y móvil.
+                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de {{ date('Y') - 2013 }} años de experiencia en el desarrollo web y móvil.
                         </p>
 
                         <div class="mt-4">
