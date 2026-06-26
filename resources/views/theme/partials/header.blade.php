@@ -1,54 +1,52 @@
-<header class="bg-[#191919] text-white p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        {{-- Logo and Title --}}
-        <a href="{{ route('home.index') }}" class="flex items-center">
-            <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Hugo Santos Icon" class="h-10 inline-block mr-2">
-            <h1 class="text-2xl inline-block font-bold">HUGO SANTOS DEV</h1>
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 text-slate-900 backdrop-blur-xl">
+    <div class="container mx-auto flex items-center justify-between px-5 py-4">
+        <a href="{{ route('home.index') }}" class="flex items-center gap-3" aria-label="Ir al inicio">
+            <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Hugo Santos Icon" class="h-11 w-11 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
+            <div class="leading-tight">
+                <span class="block text-base font-black tracking-wide text-slate-950">Hugo Santos</span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.26em] text-blue-700">Full Stack Developer</span>
+            </div>
         </a>
 
         <nav x-data="{ isOpen: false }" class="flex items-center">
-            <!-- Desktop Menu -->
             <div class="hidden md:block">
-                <ul class="flex space-x-4">
-                    <li><a href="{{ route('home.index') }}#home" class="hover:text-gray-400">Sobre mí</a></li>
-                    <li><a href="{{ route('home.index') }}#services" class="hover:text-gray-400">Servicios</a></li>
-                    <li><a href="{{ route('home.blog') }}" class="hover:text-gray-400">Blog</a></li>
-                    <li><a href="{{ route('home.index') }}#contact" class="hover:text-gray-400">Contacto</a></li>
+                <ul class="flex items-center gap-1 text-sm font-semibold text-slate-600">
+                    <li><a href="{{ route('home.index') }}#home" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Sobre mí</a></li>
+                    <li><a href="{{ route('home.index') }}#services" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Servicios</a></li>
+                    <li><a href="{{ route('home.projects') }}" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Proyectos</a></li>
+                    <li><a href="{{ route('home.blog') }}" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Blog</a></li>
+                    <li><a href="{{ route('home.index') }}#contact" class="ml-2 rounded-full bg-blue-700 px-5 py-2 text-white shadow-sm shadow-blue-900/20 hover:bg-blue-800">Contacto</a></li>
                 </ul>
             </div>
 
-            <!-- Mobile menu button -->
-            <button @click="isOpen = true" type="button" class="text-white hover:text-gray-400 md:hidden ml-4">
+            <button @click="isOpen = true" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 md:hidden" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Mobile Menu (Full Screen Overlay) -->
             <div x-show="isOpen"
-                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter="transition ease-out duration-200"
                  x-transition:enter-start="opacity-0"
                  x-transition:enter-end="opacity-100"
-                 x-transition:leave="transition ease-in duration-300"
+                 x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
-                 class="fixed inset-0 bg-gray-900 z-50 md:hidden"
+                 class="fixed inset-0 z-50 bg-white md:hidden"
                  style="display: none;">
 
-                <div class="flex justify-end p-4">
-                    <button @click="isOpen = false" class="text-white">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+                    <span class="text-sm font-bold uppercase tracking-[0.24em] text-blue-700">Menú</span>
+                    <button @click="isOpen = false" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700" aria-label="Cerrar menú">
+                        <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
-                <div class="flex flex-col items-center justify-center h-full -mt-12">
-                    <ul class="text-center space-y-8">
-                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#home" class="text-3xl text-white hover:text-gray-400">Sobre mí</a></li>
-                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#services" class="text-3xl text-white hover:text-gray-400">Servicios</a></li>
-                        <li><a @click="isOpen = false" href="{{ route('home.blog') }}" class="text-3xl text-white hover:text-gray-400">Blog</a></li>
-                        <li><a @click="isOpen = false" href="{{ route('home.index') }}#contact" class="text-3xl text-white hover:text-gray-400">Contacto</a></li>
-                    </ul>
-                </div>
+                <ul class="space-y-2 p-5 text-2xl font-bold text-slate-900">
+                    <li><a @click="isOpen = false" href="{{ route('home.index') }}#home" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Sobre mí</a></li>
+                    <li><a @click="isOpen = false" href="{{ route('home.index') }}#services" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Servicios</a></li>
+                    <li><a @click="isOpen = false" href="{{ route('home.projects') }}" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Proyectos</a></li>
+                    <li><a @click="isOpen = false" href="{{ route('home.blog') }}" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Blog</a></li>
+                    <li><a @click="isOpen = false" href="{{ route('home.index') }}#contact" class="block rounded-2xl bg-blue-700 px-4 py-4 text-white">Contacto</a></li>
+                </ul>
             </div>
         </nav>
     </div>

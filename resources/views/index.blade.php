@@ -7,406 +7,313 @@
 @endsection
 
 @section('content')
-    <div class="bg-[#1e1e1e] text-white">
-        <div class="container mx-auto p-8">
-            <!-- Hero Section -->
-            <section id="home" class="relative min-h-[80vh] flex items-center py-16">
-                <div class="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-transparent to-cyan-900/30 opacity-30 rounded-3xl"></div>
+@php
+    $experienceYears = date('Y') - 2013;
 
-                <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 relative z-10">
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                            Hola mundo <i class="fa-solid fa-code"></i>
-                            <br>
-                            Soy Hugo Santos, <span class="text-purple-400">Full Stack Developer</span>
-                        </h1>
-                        
-                        <p class="text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
-                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Con más de {{ date('Y') - 2013 }} años de experiencia en el desarrollo web y móvil, 
-                            he trabajado en una gran variedad de proyectos. Mi enfoque es siempre en la calidad del código y la experiencia del usuario.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                            <a 
-                                href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" 
-                                target="_blank" 
-                                class="bg-purple-600 hover:bg-purple-700 rounded-full px-6 py-4 text-md font-bold"
-                            >
-                                <i class="fa-solid fa-download"></i> DESCARGAR CV
-                            </a>
-                            
-                            <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
-                                <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github fa-2x"></i></a>
-                                <a href="https://x.com/hugovhs1" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-2x"></i></a>
+    $credentials = [
+        ['icon' => '<i class="fa-brands fa-magento"></i>', 'label' => 'Adobe Commerce', 'value' => 'Developer certificado'],
+        ['icon' => '<i class="fa-brands fa-laravel"></i>', 'label' => 'Laravel y PHP', 'value' => '+'.$experienceYears.' años de experiencia'],
+        ['icon' => '<i class="fa-brands fa-flutter"></i>', 'label' => 'Flutter', 'value' => 'Apps multiplataforma'],
+        ['icon' => '<i class="fa-brands fa-microsoft"></i>', 'label' => 'C# y .NET', 'value' => 'Backend empresarial'],
+    ];
 
-                                {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a> --}}
-                                {{-- <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a> --}}
-                            </div>
-                        </div>
-                    </div>
+    $experiences = [
+        ['role' => 'Full Stack Developer', 'company' => 'Wibrante', 'period' => '2013 - Presente'],
+        ['role' => 'Backend Developer, Líder técnico', 'company' => 'Never8', 'period' => '2021 - 2025'],
+        ['role' => 'Backend Developer', 'company' => 'MiPC Comunicaciones', 'period' => '2018 - 2021'],
+    ];
 
-                    <div class="md:w-1/3 mt-10 md:mt-0">
-                        <div class="relative p-1 border border-purple-500/30 rounded-3xl bg-black/10 backdrop-blur-sm">
-                            <div class="relative p-1 border border-purple-500/30 rounded-3xl">
-                                <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Hugo Santos Dev" class="rounded-2xl w-full" />
-                            </div>
-                        </div>
-                    </div>
+    $skills = [
+        ['name' => 'PHP, Laravel, Magento 2, Adobe Commerce', 'level' => 92],
+        ['name' => 'JavaScript, NodeJS, Vue.js, jQuery', 'level' => 90],
+        ['name' => 'C# y .NET', 'level' => 84],
+        ['name' => 'Flutter', 'level' => 80],
+        ['name' => 'HTML, CSS, diseño de interfaces', 'level' => 88],
+    ];
+
+    $services = [
+        ['name' => 'E-commerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>', 'copy' => 'Tiendas, catálogos y flujos de venta preparados para crecer.'],
+        ['name' => 'Apps web', 'icon' => '<i class="fa-solid fa-cloud"></i>', 'copy' => 'Paneles, portales y herramientas internas con lógica clara.'],
+        ['name' => 'Sitios web', 'icon' => '<i class="fa-brands fa-html5"></i>', 'copy' => 'Presencias digitales rápidas, accesibles y fáciles de administrar.'],
+        ['name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>', 'copy' => 'Soluciones diseñadas alrededor de procesos reales.'],
+        ['name' => 'Apps móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>', 'copy' => 'Experiencias multiplataforma para usuarios en movimiento.'],
+        ['name' => 'Integraciones', 'icon' => '<i class="fa-solid fa-plug"></i>', 'copy' => 'APIs, CRMs, ERPs y servicios conectados sin fricción.'],
+    ];
+
+    $aiTools = [
+        ['name' => 'GitHub Copilot', 'image' => 'assets/img/ia/github_copilot.png', 'copy' => 'Asistencia diaria para acelerar escritura, revisión y exploración de código.'],
+        ['name' => 'Warp', 'image' => 'assets/img/ia/warp.png', 'copy' => 'Terminal moderna con flujos de trabajo apoyados por IA.'],
+        ['name' => 'ChatGPT', 'image' => 'assets/img/ia/chat_gpt.png', 'copy' => 'Apoyo para investigación, arquitectura, contenido y resolución de problemas.'],
+        ['name' => 'Dyad', 'image' => 'assets/img/ia/dyad.png', 'copy' => 'Prototipado local para convertir ideas en pantallas navegables.'],
+        ['name' => 'Midjourney', 'image' => 'assets/img/ia/midjourney.png', 'copy' => 'Generación visual para conceptos, referencias e identidad.'],
+    ];
+@endphp
+
+<div class="bg-white text-slate-900">
+    <section id="home" class="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px]">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-900 via-blue-600 to-cyan-500"></div>
+        <div class="container mx-auto grid min-h-[calc(100vh-81px)] gap-12 px-5 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div>
+                <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-bold text-blue-800 shadow-sm">
+                    <span class="h-2 w-2 rounded-full bg-cyan-500"></span>
+                    Desarrollo web, móvil y e-commerce
+                </p>
+
+                <h1 class="max-w-4xl text-4xl font-black leading-[1.03] tracking-normal text-slate-950 sm:text-5xl lg:text-7xl">
+                    Arquitectura y desarrollo para productos digitales serios.
+                </h1>
+
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                    Soy Hugo Santos, Full Stack Developer. Diseño y construyo software en la nube, plataformas de comercio electrónico y aplicaciones que resuelven problemas reales con código mantenible y una experiencia cuidada.
+                </p>
+
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                    <a href="#contact" class="inline-flex items-center justify-center gap-3 rounded-full bg-blue-700 px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Iniciar conversación
+                    </a>
+                    <a href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" target="_blank" class="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-black uppercase tracking-wide text-slate-800 hover:border-blue-300 hover:text-blue-800">
+                        <i class="fa-solid fa-download"></i>
+                        Descargar CV
+                    </a>
                 </div>
-            </section>
-            {{-- ends hero section --}}
-            
-            {{-- stats section --}}
-            @php
-                $stats = [
-                    ['icon' => '<i class="fa-brands fa-magento fa-2x"></i>', 'label' => 'Adobe Commerce Developer', 'value' => 'Certificado por Adobe'],
-                    ['icon' => '<i class="fa-brands fa-laravel fa-2x"></i>', 'label' => 'Laravel, PHP', 'value' => '+12 años de experiencia'],
-                    ['icon' => '<i class="fa-brands fa-flutter fa-2x"></i>', 'label' => 'Flutter', 'value' => 'APPs multiplataforma'],
-                    ['icon' => '<i class="fa-brands fa-microsoft fa-2x"></i>', 'label' => 'C#', 'value' => '.NET']
-                ];
-            @endphp
 
-            <section class="py-16">
-                <div class="container mx-auto">
-                    <div class="flex flex-wrap justify-center gap-8">
-                    @foreach($stats as $index => $stat)
-                        <div class="flex items-center space-x-6">
-                            <div class="text-center">
-                                <div class="p-4 bg-[#2a2a2a] rounded-lg">{!! $stat['icon'] !!}</div>
-                            </div>
-                        
-                            <div>
-                                <p class="text-lg font-semibold">{{ $stat['value'] }}</p>
-                                <p class="text-xl font-bold tracking-widest text-gray-400">{{ $stat['label'] }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                    </div>
+                <div class="mt-8 flex gap-3">
+                    <a href="https://www.linkedin.com/in/hugovhs/" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-700" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/hugovhs" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-700" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/hugovhs1" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-700" aria-label="X"><i class="fab fa-twitter"></i></a>
                 </div>
-            </section>
-            {{-- ends stats section --}}
-
-            {{-- experience ands skills section --}}
-            <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 my-16">
-                @php
-                    $experiences = [
-                        [
-                            'role' => 'Full Stack Developer',
-                            'company' => 'Wibrante',
-                            'period' => '2013 - Presente',
-                        ],
-                        [
-                            'role' => 'Backend Developer, Líder técnico',
-                            'company' => 'Never8',
-                            'period' => '2021 - 2025',
-                        ],
-                        [
-                            'role' => 'Backend Developer',
-                            'company' => 'MiPC Comunicaciones',
-                            'period' => '2018 - 2021',
-                        ]
-                    ];
-
-                    $skills = [
-                        [ 'name' => 'PHP (Laravel, Magento 2, Adobe Commerce)', 'level' => 90, 'icon' => '<i class="fa-brands fa-php text-purple-400"></i>' ],
-                        [ 'name' => 'C# (.NET)', 'level' => 85, 'icon' => '<i class="fa-brands fa-microsoft text-purple-400"></i>' ],
-                        [ 'name' => 'Flutter', 'level' => 80, 'icon' => '<i class="fa-brands fa-flutter text-purple-400"></i>' ],
-                        [ 'name' => 'JavaScript (NodeJS, Vue.js, JQuery)', 'level' => 95, 'icon' => '<i class="fa-brands fa-js text-purple-400"></i>' ],
-                        [ 'name' => 'HTML, CSS', 'level' => 90, 'icon' => '<i class="fa-brands fa-html5 text-purple-400"></i>' ],
-                    ];
-                @endphp
-
-                <section id="experience">
-                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">EXPERIENCIA LABORAL</h2>
-                    
-                    <div class="relative border-l-2 border-purple-500 pl-8">
-                        @foreach($experiences as $index => $exp)
-                        <div key={index} class="mb-12 relative">
-                            <div class="absolute -left-[39px] top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-[#1e1e1e]"></div>
-                            <h3 class="text-xl font-bold">{{ $exp['role'] }}</h3>
-                            <p class="text-gray-400">{{ $exp['company'] }}</p>
-                            <p class="text-sm text-gray-500">{{ $exp['period'] }}</p>
-                        </div>
-                        @endforeach
-                    </div>
-                </section>
-
-                <section id="skills">
-                    <h2 class="text-3xl font-bold mb-8 text-center md:text-left">STACK Y EXPERTISE</h2>
-                        
-                    <div class="space-y-6">
-                        @foreach($skills as $index => $skill)
-                            <div key={index}>
-                                <div class="flex items-center mb-2">
-                                    {!! $skill['icon'] !!}
-                                    <p class="ml-2 font-semibold">{{ $skill['name'] }}</p>
-                                </div>
-                                
-                                <div class="w-full bg-gray-700 rounded-full h-1.5">
-                                    <div class="bg-gradient-to-r from-purple-500 to-cyan-400 h-1.5 rounded-full" style="width: {{ $skill['level'] }}%"></div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </section>
             </div>
-            {{-- ends experience and skills section --}}
 
-            {{-- AI tools section --}}
-            <section id="ai-tools" class="my-16">
-                <h2 class="text-3xl font-bold mb-2 text-center">HERRAMIENTAS DE IA</h2>
-                <p class="text-gray-400 text-center mb-8">Herramientas de inteligencia artificial que utilizo en mi día a día para ser más productivo.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/github_copilot.png') }}" alt="Github Copilot" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">Github Copilot</h3>
-                        </div>
-                        
-                        <p class="mt-2 text-gray-300">Asistente de IA para generación de código y autocompletado. Sin duda me ayuda a ser mucho más eficiente en mi trabajo diario.</p>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/warp.png') }}" alt="Warp" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">Warp</h3>
-                        </div>
-
-                        <p class="mt-2 text-gray-300">Terminal de nueva generación impulsado por IA, su modo agente puede crear proyectos completos, mi agente de código favorito.</p>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/chat_gpt.png') }}" alt="ChatGPT" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">ChatGPT</h3>
-                        </div>
-
-                        <p class="mt-2 text-gray-300">La inteligencia artificial por excelencia, la utilizo para obtener respuestas rápidas y generar contenido de calidad.</p>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/dyad.png') }}" alt="Dyad" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">Dyad</h3>
-                        </div>
-                        
-                        <p class="mt-2 text-gray-300">Herramienta que se ejecuta de manera local, excelente para la creación de diseños y prototipos.</p>
-                    </div>
-
-                    <div class="bg-[#2a2a2a] p-6 rounded-lg">
-                        <div class="flex items-center">
-                            <img src="{{ asset('assets/img/ia/midjourney.png') }}" alt="Midjourney" class="w-12 h-12 rounded-full object-cover mb-4 mr-3">
-                            <h3 class="text-xl font-bold">Midjourney</h3>
-                        </div>
-
-                        <p class="mt-2 text-gray-300">Mi herramienta favorita para la generación de imágenes a partir de texto.</p>
+            <div class="relative">
+                <div class="absolute -left-5 top-8 hidden h-28 w-28 border-l-4 border-t-4 border-blue-700 lg:block"></div>
+                <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl shadow-blue-950/10">
+                    <img src="{{ asset('assets/img/cv_foto.jpg') }}" alt="Hugo Santos" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top">
+                    <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/70 bg-white/90 p-5 shadow-xl shadow-slate-900/10 backdrop-blur">
+                        <p class="text-sm font-bold uppercase tracking-[0.22em] text-blue-700">Perfil técnico</p>
+                        <p class="mt-2 text-2xl font-black text-slate-950">+{{ $experienceYears }} años construyendo software</p>
                     </div>
                 </div>
-            </section>
-            {{-- ends AI tools section --}}
-
-            {{-- project stats --}}
-            @php
-                $projectStats = [
-                    [
-                        'icon' => '<i class="fa-solid fa-circle-check fa-2x"></i>',
-                        'value' => '+100',
-                        'label' => 'Proyectos'
-                    ],
-                    [
-                        'icon' => '<i class="fa-solid fa-clock fa-2x"></i>',
-                        'value' => '+23,000',
-                        'label' => 'Horas de Trabajo'
-                    ],
-                    [
-                        'icon' => '<i class="fa-solid fa-code fa-2x"></i>',
-                        'value' => '+1,000,000',
-                        'label' => 'Líneas de Código'
-                    ],
-                ];
-            @endphp
-
-            <section class="my-16 p-8 bg-gradient-to-r from-purple-800/80 to-purple-900/80 rounded-2xl">
-                <div class="container mx-auto">
-                    <div class="flex flex-wrap justify-around items-center divide-x divide-purple-700/50">
-                    @foreach($projectStats as $index => $stat)
-                        <div class="flex-1 flex items-center justify-center space-x-4 text-center m-4 px-4">
-                            {!! $stat['icon'] !!}
-                            
-                            <div>
-                                <p class="text-4xl font-bold">{{ $stat['value'] }}</p>
-                                <p class="text-gray-300">{{ $stat['label'] }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                    </div>
-                </div>
-            </section>
-            {{-- ends project stats section --}}
-
-            {{-- services section --}}
-            @php
-                $services = [
-                    [ 'name' => 'e-commerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>' ],
-                    [ 'name' => 'APPs Web', 'icon' => '<i class="fa-solid fa-cloud"></i>' ],
-                    [ 'name' => 'Páginas web', 'icon' => '<i class="fa-brands fa-html5"></i>' ],
-                    [ 'name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>' ],
-                    [ 'name' => 'APPs Móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>' ],
-                    [ 'name' => 'Integraciones con APIs, CRMs', 'icon' => '<i class="fa-solid fa-plug"></i>' ],
-                    [ 'name' => 'Creación de APIs', 'icon' => '<i class="fa-brands fa-connectdevelop"></i>' ],
-                    [ 'name' => 'Automatizaciones', 'icon' => '<i class="fa-solid fa-robot"></i>' ],
-                    [ 'name' => 'Consultoría', 'icon' => '<i class="fa-solid fa-globe"></i>' ]
-                ];
-            @endphp
-
-            <section id="services" class="py-16">
-                <div class="container mx-auto">
-                    <div class="mb-12">
-                        <h2 class="text-3xl font-bold">Servicios</h2>
-                        <p class="text-gray-400">Trabajando con responsabilidad y confianza mutua</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 max-sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        @foreach($services as $service)
-                        <div class="bg-[#2a2a2a] p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square transition-all duration-300 border-2 border-transparent hover:border-purple-500 cursor-pointer">
-                            <div class="text-purple-400 text-4xl mb-6">{!! $service['icon'] !!}</div>
-                            <h3 class="text-lg font-semibold">{{ $service['name'] }}</h3>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-            {{-- ends services section --}}
-
-            <!-- Testimonials Section -->
-            <section id="testimonials" class="my-16 p-8 md:p-16 bg-gradient-to-br from-purple-800/80 to-purple-900/80 rounded-2xl">
-                <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-4">Hagamos realidad tus ideas</h2>
-                        <img src="{{ asset('assets/img/work_together.jpg') }}" alt="World map with client avatars" class="w-full" />
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-4xl font-bold mb-4">Trabajemos juntos</h3>
-                        <p class="text-gray-300 mb-8">
-                            Estoy aquí para ayudarte a llevar tus proyectos al siguiente nivel. Con más de 12 años de experiencia en desarrollo web y móvil, 
-                            ofrezco soluciones a la medida, alineadas con las necesidades y objetivos de cada cliente. Desarrollo aplicaciones web, 
-                            plataformas de comercio electrónico y aplicaciones móviles con un enfoque en funcionalidad, rendimiento y experiencia de usuario. 
-                            Será un gusto colaborar contigo y convertir tus ideas en resultados concretos.
-                        </p>
-
-                        <a 
-                            href="#contact"
-                            class="bg-white text-purple-700 hover:bg-gray-200 rounded-full px-8 py-2 text-lg font-bold"
-                        >
-                            CONTACTAME
-                        </a>
-                    </div>
-                </div>
-            </section>
-            {{-- ends testimonials section --}}
-
-            <!-- Latest Post Section -->
-            <section class="py-20 text-center" id="blog">
-                <h2 class="text-4xl font-bold">Últimas Publicaciones</h2>
-
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach ($posts as $post)
-                    <div class="post bg-[#2a2a2a] p-8 rounded-lg text-left">
-                        <div class="post-image mb-4">
-                            <a href="{{ route('home.blog.post', $post->slug) }}"><img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover rounded-lg"></a>
-                        </div>
-
-                        <h3 class="text-xl font-bold">{{ $post->title }}</h3>
-
-                        <p class="mt-2">{{ $post->excerpt }}</p>
-
-                        <a href="{{ route('home.blog.post', $post->slug) }}" class="mt-4 inline-block text-purple-400">SEGUIR LEYENDO</a>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div class="mt-8">
-                    <a href="{{ route('home.blog') }}" class="bg-purple-600 text-white rounded-full px-8 py-2 text-lg font-bold">VER MÁS PUBLICACIONES</a>
-                </div>
-            </section>
-            {{-- ends latest post section --}}
-
-            <!-- Contact Section -->
-            <section id="contact" class="py-16">
-                <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start bg-[#2a2a2a] p-8 rounded-2xl">
-                    <div class="text-center md:text-left">
-                        <div class="flex justify-center md:justify-start mb-4">
-                            <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Logo" class="w-16 h-16" />
-                        </div>
-                    
-                        <h2 class="text-4xl font-bold">Hugo Santos</h2>
-                        <p class="text-gray-400 mb-4">FULL STACK DEVELOPER</p>
-
-                        <a 
-                            href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" 
-                            target="_blank" 
-                            class="border-purple-500 text-purple-500 hover:bg-purple-500 bg-white hover:text-white rounded-full px-8"
-                        >
-                            DESCARGAR CV
-                        </a>
-
-                        <div class="flex justify-center md:justify-start space-x-4 my-8">
-                            <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/hugovhs" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
-                            <a href="https://x.com/hugovhs1" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    
-                        <div class="space-y-4">
-                            <div>
-                                <p class="text-gray-400">Teléfonos personales:</p>
-
-                                <p class="text-lg font-semibold"><i class="fab fa-whatsapp"></i> 33 19 15 62 60</p>
-                                <p class="text-lg font-semibold"><i class="fab fa-whatsapp"></i> 33 51 24 07 03</p>
-                            </div>
-
-                            <div>
-                                <p class="text-gray-400">email:</p>
-                                <p class="text-lg font-semibold">hugosantos@wibrante.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-4xl font-bold mb-4">Contacta <span class="text-purple-400">Me.</span></h2>
-                        
-                        <form class="space-y-8" id="contact-form">
-                            @csrf
-                            <input 
-                                type="text" 
-                                name="name"
-                                placeholder="Tu nombre *" 
-                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
-                            >
-
-                            <input 
-                                type="email" 
-                                name="email"
-                                placeholder="Tu correo electrónico *" 
-                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-10 w-full"
-                            >
-
-                            <textarea 
-                                name="message"
-                                placeholder="Déjame un mensaje" 
-                                class="bg-transparent border-0 border-b-2 border-gray-600 focus:border-purple-500 rounded-none px-0 ring-offset-transparent focus-visible:ring-0 h-32 w-full"
-                            ></textarea>
-
-                            <button type="submit" class="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-2 text-lg">ENVIAR MENSAJE</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-            {{-- ends contact section --}}
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="border-b border-slate-200 bg-slate-50">
+        <div class="container mx-auto grid gap-4 px-5 py-10 sm:grid-cols-2 lg:grid-cols-4">
+            @foreach($credentials as $credential)
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl text-blue-700">{!! $credential['icon'] !!}</div>
+                    <p class="font-black text-slate-950">{{ $credential['value'] }}</p>
+                    <p class="mt-1 text-sm font-semibold text-slate-500">{{ $credential['label'] }}</p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <section class="container mx-auto grid gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+            <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Experiencia</p>
+            <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Trayectoria con foco en ejecución técnica.</h2>
+            <p class="mt-4 leading-7 text-slate-600">
+                He trabajado en proyectos comerciales, plataformas internas, aplicaciones móviles e integraciones. Mi prioridad es convertir necesidades de negocio en sistemas claros, estables y mantenibles.
+            </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+            <div class="space-y-5 border-l-2 border-blue-100 pl-6">
+                @foreach($experiences as $experience)
+                    <article class="relative">
+                        <span class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-4 border-white bg-blue-700"></span>
+                        <p class="text-sm font-bold text-blue-700">{{ $experience['period'] }}</p>
+                        <h3 class="mt-1 text-xl font-black text-slate-950">{{ $experience['role'] }}</h3>
+                        <p class="text-slate-500">{{ $experience['company'] }}</p>
+                    </article>
+                @endforeach
+            </div>
+
+            <div class="space-y-5">
+                @foreach($skills as $skill)
+                    <div>
+                        <div class="mb-2 flex justify-between gap-4 text-sm font-bold text-slate-700">
+                            <span>{{ $skill['name'] }}</span>
+                            <span>{{ $skill['level'] }}%</span>
+                        </div>
+                        <div class="h-2 rounded-full bg-slate-100">
+                            <div class="h-2 rounded-full bg-gradient-to-r from-blue-800 to-cyan-500" style="width: {{ $skill['level'] }}%"></div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-slate-950 py-20 text-white">
+        <div class="container mx-auto px-5">
+            <div class="mb-10 max-w-3xl">
+                <p class="text-sm font-black uppercase tracking-[0.24em] text-cyan-300">Servicios</p>
+                <h2 class="mt-3 text-3xl font-black sm:text-4xl">Soluciones digitales para operar, vender y crecer.</h2>
+                <p class="mt-4 leading-7 text-slate-300">Trabajo con responsabilidad, comunicación clara y una base técnica pensada para durar.</p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach($services as $service)
+                    <article class="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:border-cyan-300/50 hover:bg-white/[0.07]">
+                        <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-400/10 text-2xl text-cyan-300">{!! $service['icon'] !!}</div>
+                        <h3 class="text-xl font-black">{{ $service['name'] }}</h3>
+                        <p class="mt-3 leading-7 text-slate-300">{{ $service['copy'] }}</p>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto grid gap-12 px-5 py-20 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div>
+            <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">IA aplicada</p>
+            <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Herramientas modernas para entregar mejor y más rápido.</h2>
+            <p class="mt-4 leading-7 text-slate-600">
+                Uso IA como apoyo de productividad, prototipado y revisión, manteniendo criterio técnico sobre arquitectura, seguridad y calidad.
+            </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+            @foreach($aiTools as $tool)
+                <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <img src="{{ asset($tool['image']) }}" alt="{{ $tool['name'] }}" class="h-12 w-12 rounded-xl object-cover">
+                        <h3 class="font-black text-slate-950">{{ $tool['name'] }}</h3>
+                    </div>
+                    <p class="mt-4 text-sm leading-6 text-slate-600">{{ $tool['copy'] }}</p>
+                </article>
+            @endforeach
+        </div>
+    </section>
+
+    <section class="border-y border-slate-200 bg-blue-50/60">
+        <div class="container mx-auto grid gap-8 px-5 py-16 md:grid-cols-3">
+            <div>
+                <p class="text-5xl font-black text-blue-800">+100</p>
+                <p class="mt-2 font-bold text-slate-700">Proyectos entregados</p>
+            </div>
+            <div>
+                <p class="text-5xl font-black text-blue-800">+23,000</p>
+                <p class="mt-2 font-bold text-slate-700">Horas de trabajo</p>
+            </div>
+            <div>
+                <p class="text-5xl font-black text-blue-800">+1M</p>
+                <p class="mt-2 font-bold text-slate-700">Líneas de código</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-5 py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <img src="{{ asset('assets/img/work_together.jpg') }}" alt="Trabajemos juntos" class="w-full rounded-[2rem] border border-slate-200 shadow-xl shadow-blue-950/10">
+            <div>
+                <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Colaboración</p>
+                <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Hagamos realidad tus ideas con una ruta técnica clara.</h2>
+                <p class="mt-5 leading-8 text-slate-600">
+                    Puedo ayudarte a llevar tu proyecto al siguiente nivel con soluciones a la medida, alineadas con tus necesidades y objetivos. Desarrollo aplicaciones web, e-commerce y apps móviles con enfoque en funcionalidad, rendimiento y experiencia de usuario.
+                </p>
+                <a href="#contact" class="mt-8 inline-flex items-center gap-3 rounded-full bg-blue-700 px-7 py-4 text-sm font-black uppercase tracking-wide text-white hover:bg-blue-800">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Trabajemos juntos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    @if($projects->count())
+        <section class="bg-slate-50 py-20">
+            <div class="container mx-auto px-5">
+                <div class="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div>
+                        <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Proyectos</p>
+                        <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Trabajo reciente</h2>
+                    </div>
+                    <a href="{{ route('home.projects') }}" class="font-bold text-blue-700 hover:text-blue-900">Ver todos los proyectos</a>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    @foreach ($projects->take(3) as $project)
+                        <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                            <a href="{{ route('home.project', $project->slug) }}"><img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="h-56 w-full object-cover"></a>
+                            <div class="p-6">
+                                <h3 class="text-xl font-black text-slate-950">{{ $project->title }}</h3>
+                                <p class="mt-3 text-sm leading-6 text-slate-600">{{ $project->excerpt }}</p>
+                                <a href="{{ route('home.project', $project->slug) }}" class="mt-5 inline-flex items-center gap-2 font-bold text-blue-700 hover:text-blue-900">Ver detalles <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    <section class="container mx-auto px-5 py-20" id="blog">
+        <div class="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+                <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Blog</p>
+                <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Últimas publicaciones</h2>
+            </div>
+            <a href="{{ route('home.blog') }}" class="font-bold text-blue-700 hover:text-blue-900">Ver más publicaciones</a>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            @foreach ($posts as $post)
+                <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <a href="{{ route('home.blog.post', $post->slug) }}"><img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}" class="h-56 w-full object-cover"></a>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-slate-950">{{ $post->title }}</h3>
+                        <p class="mt-3 text-sm leading-6 text-slate-600">{{ $post->excerpt }}</p>
+                        <a href="{{ route('home.blog.post', $post->slug) }}" class="mt-5 inline-flex items-center gap-2 font-bold text-blue-700 hover:text-blue-900">Seguir leyendo <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            @endforeach
+        </div>
+    </section>
+
+    <section id="contact" class="bg-slate-50 py-20">
+        <div class="container mx-auto grid gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+                <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Contacto</p>
+                <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Conversemos sobre tu siguiente proyecto.</h2>
+                <p class="mt-5 leading-8 text-slate-600">
+                    Cuéntame qué quieres construir, mejorar o automatizar. Te responderé con una ruta clara para avanzar.
+                </p>
+
+                <div class="mt-8 space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-wide text-slate-500">WhatsApp</p>
+                        <p class="mt-1 text-lg font-black text-slate-950"><i class="fab fa-whatsapp text-blue-700"></i> 33 19 15 62 60</p>
+                        <p class="text-lg font-black text-slate-950"><i class="fab fa-whatsapp text-blue-700"></i> 33 51 24 07 03</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-wide text-slate-500">Email</p>
+                        <p class="mt-1 text-lg font-black text-slate-950">hugosantos@wibrante.com</p>
+                    </div>
+                    <a href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" target="_blank" class="inline-flex items-center gap-3 rounded-full border border-blue-200 px-5 py-3 font-bold text-blue-700 hover:bg-blue-50">
+                        <i class="fa-solid fa-download"></i>
+                        Descargar CV
+                    </a>
+                </div>
+            </div>
+
+            <form class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8" id="contact-form">
+                @csrf
+                <div class="grid gap-6">
+                    <input type="text" name="name" placeholder="Tu nombre *" class="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-slate-900 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100">
+                    <input type="email" name="email" placeholder="Tu correo electrónico *" class="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-slate-900 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100">
+                    <textarea name="message" placeholder="Déjame un mensaje" class="h-36 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"></textarea>
+                    <button type="submit" class="inline-flex items-center justify-center gap-3 rounded-full bg-blue-700 px-8 py-4 font-black uppercase tracking-wide text-white hover:bg-blue-800">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Enviar mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
 @endsection
 
 @section('scripts')

@@ -6,167 +6,106 @@
 @section('og_type', 'article')
 
 @section('content')
-    <div class="bg-[#1e1e1e] text-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <!-- Breadcrumb -->
-            <nav class="text-sm text-gray-400 mb-6" aria-label="Breadcrumb">
-                <ol class="list-reset inline-flex items-center space-x-2">
-                    <li>
-                        <a href="{{ route('home.index') }}" class="hover:text-white">Inicio</a>
-                    </li>
-                    <li>
-                        <span class="text-gray-600">/</span>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.blog') }}" class="hover:text-white">Blog</a>
-                    </li>
-                    <li>
-                        <span class="text-gray-600">/</span>
-                    </li>
-                    <li class="text-gray-300 truncate max-w-[50vw]">{{ $post->title }}</li>
-                </ol>
-            </nav>
+<div class="bg-white text-slate-900">
+    <div class="container mx-auto px-5 py-8">
+        <nav class="mb-8 text-sm font-semibold text-slate-500" aria-label="Breadcrumb">
+            <ol class="inline-flex flex-wrap items-center gap-2">
+                <li><a href="{{ route('home.index') }}" class="hover:text-blue-700">Inicio</a></li>
+                <li class="text-slate-300">/</li>
+                <li><a href="{{ route('home.blog') }}" class="hover:text-blue-700">Blog</a></li>
+                <li class="text-slate-300">/</li>
+                <li class="max-w-[60vw] truncate text-slate-800">{{ $post->title }}</li>
+            </ol>
+        </nav>
 
-            <div class="grid grid-cols-12 gap-8">
-                <!-- Main content -->
-                <div class="col-span-12 lg:col-span-8">
-                    <article class="mt-2">
-                        <!-- Fancy header -->
-                        <header class="mb-6">
-                            <div class="bg-gradient-to-br from-purple-800/40 to-cyan-700/30 rounded-2xl p-6 border border-purple-500/20">
-                                <h1 class="font-extrabold text-2xl sm:text-3xl leading-tight mb-3">
-                                    {{ $post->title }}
-                                </h1>
-                                <div class="flex items-center text-gray-300 text-sm">
-                                    <div class="flex items-center">
-                                        <div class="w-8 h-8 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                            <img class="w-8 h-8 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
-                                        </div>
+        <div class="grid grid-cols-12 gap-10">
+            <article class="col-span-12 lg:col-span-8">
+                <header class="mb-8 rounded-3xl border border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px] p-6 sm:p-8">
+                    <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Artículo</p>
+                    <h1 class="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-5xl">{{ $post->title }}</h1>
+                    <div class="mt-6 flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-600">
+                        <img class="h-10 w-10 rounded-full border border-white shadow-sm" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
+                        <span>{{ $post->userName }}</span>
+                        <span class="text-slate-300">•</span>
+                        <time datetime="{{ $post->created_at }}">{{ $post->created_at->format('d F, Y') }}</time>
+                    </div>
+                </header>
 
-                                        <span>
-                                           {{ $post->userName }}
-                                        </span>
-                                    </div>
-                                    <span class="mx-3 text-gray-500">•</span>
-                                    <time datetime="{{ $post->created_at }}" class="text-gray-400">
-                                        {{ $post->created_at->format('d F, Y') }}
-                                    </time>
-                                </div>
-                            </div>
-                        </header>
+                @if($post->thumbnail)
+                    <figure class="mb-8">
+                        <img class="w-full rounded-3xl border border-slate-200 shadow-xl shadow-blue-950/10" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                    </figure>
+                @endif
 
-                        <!-- Cover image -->
-                        @if($post->thumbnail)
-                            <figure class="mb-6">
-                                <img class="w-full h-auto rounded-2xl shadow-lg border border-purple-500/20" src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
-                            </figure>
-                        @endif
+                <section class="max-w-none text-lg leading-8 text-slate-700 [&_a]:font-bold [&_a]:text-blue-700 [&_h2]:text-slate-950 [&_h2]:font-black [&_h3]:text-slate-950 [&_h3]:font-black [&_img]:rounded-2xl">
+                    {!! $post->content !!}
+                </section>
 
-                        <!-- Content -->
-                        <section class="mb-8 leading-relaxed text-gray-200 text-lg space-y-6">
-                            {!! $post->content !!}
-                        </section>
-
-                        <!-- Share -->
-                        @php
-                            $shareUrl = urlencode(request()->fullUrl());
-                            $shareText = urlencode($post->title);
-                        @endphp
-                        <div class="mt-10 p-5 rounded-xl bg-[#2a2a2a] border border-purple-500/20">
-                            <h3 class="text-xl font-semibold mb-4">Comparte este artículo</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white" href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}">
-                                    <i class="fa-brands fa-x-twitter"></i> X
-                                </a>
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-700 hover:bg-blue-800 text-white" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}">
-                                    <i class="fa-brands fa-facebook"></i> Facebook
-                                </a>
-                                <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-700 hover:bg-sky-800 text-white" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}">
-                                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                                </a>
-                                <button type="button" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white" onclick="navigator.clipboard.writeText(decodeURIComponent('{{ $shareUrl }}')); this.innerText='Copiado'; setTimeout(()=>this.innerText='Copiar enlace',1500);">
-                                    Copiar enlace
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Back to blog -->
-                        <div class="mt-8">
-                            <a href="{{ route('home.blog') }}" class="inline-flex items-center gap-2 text-purple-400 hover:text-white">
-                                <i class="fa-solid fa-arrow-left"></i> Volver al blog
-                            </a>
-                        </div>
-                    </article>
+                @php
+                    $shareUrl = urlencode(request()->fullUrl());
+                    $shareText = urlencode($post->title);
+                @endphp
+                <div class="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <h2 class="text-xl font-black text-slate-950">Comparte este artículo</h2>
+                    <div class="mt-4 flex flex-wrap gap-3">
+                        <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 font-bold text-white hover:bg-blue-700" href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}">
+                            <i class="fa-brands fa-x-twitter"></i> X
+                        </a>
+                        <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-blue-700 px-4 py-2 font-bold text-white hover:bg-blue-800" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}">
+                            <i class="fa-brands fa-facebook"></i> Facebook
+                        </a>
+                        <a target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-sky-700 px-4 py-2 font-bold text-white hover:bg-sky-800" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                        <button type="button" class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 font-bold text-slate-700 hover:border-blue-300 hover:text-blue-700" onclick="navigator.clipboard.writeText(decodeURIComponent('{{ $shareUrl }}')); this.innerText='Copiado'; setTimeout(()=>this.innerText='Copiar enlace',1500);">
+                            Copiar enlace
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Sidebar -->
-                <aside class="col-span-12 lg:col-span-4">
-                    <!-- Author card -->
-                    <div class="mb-6 p-6 rounded-2xl bg-[#2a2a2a] border border-purple-500/20">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600/40 flex items-center justify-center mr-3 border border-purple-400/30">
-                                <img class="w-12 h-12 rounded-full" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
-                            </div>
+                <div class="mt-8">
+                    <a href="{{ route('home.blog') }}" class="inline-flex items-center gap-2 font-bold text-blue-700 hover:text-blue-900">
+                        <i class="fa-solid fa-arrow-left"></i> Volver al blog
+                    </a>
+                </div>
+            </article>
+
+            <aside class="col-span-12 lg:col-span-4">
+                <div class="sticky top-28 space-y-6">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <div class="flex items-center gap-4">
+                            <img class="h-14 w-14 rounded-full border border-slate-200 object-cover" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
                             <div>
-                                <p class="text-sm text-gray-400">Autor</p>
-                                <h3 class="text-lg font-semibold">
-                                    {{ $post->userName }}
-                                </h3>
+                                <p class="text-sm font-bold uppercase tracking-wide text-slate-500">Autor</p>
+                                <h2 class="text-lg font-black text-slate-950">{{ $post->userName }}</h2>
                             </div>
                         </div>
-                        
-                        <p class="text-gray-400 text-sm">
-                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de {{ date('Y') - 2013 }} años de experiencia en el desarrollo web y móvil.
+                        <p class="mt-4 text-sm leading-6 text-slate-600">
+                            Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales. Cuento con más de {{ date('Y') - 2013 }} años de experiencia en desarrollo web y móvil.
                         </p>
-
-                        <div class="mt-4">
-                            <h4 class="text-sm font-semibold text-gray-400">Enlaces:</h4>
-                            
-                            <ul class="flex space-x-4">
-                                <li>
-                                    <a href="https://github.com/hugovhs" class="text-gray-300 hover:text-white">
-                                        <i class="fa-brands fa-github"></i>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="https://www.linkedin.com/in/hugovhs/" class="text-gray-300 hover:text-white">
-                                        <i class="fa-brands fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="https://x.com/hugovhs1" class="text-gray-300 hover:text-white">
-                                        <i class="fa-brands fa-twitter"></i>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="mailto:hugosantos@wibrante.com">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="mt-5 flex gap-3">
+                            <a href="https://github.com/hugovhs" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-blue-700 hover:text-white" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/hugovhs/" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-blue-700 hover:text-white" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://x.com/hugovhs1" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-blue-700 hover:text-white" aria-label="X"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="mailto:hugosantos@wibrante.com" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 hover:bg-blue-700 hover:text-white" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                         </div>
                     </div>
 
-                    <!-- Newsletter -->
-                    <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-800/40 to-purple-900/40 border border-purple-500/30">
-                        <h3 class="text-xl font-semibold mb-2">Suscríbete</h3>
-                        <p class="text-gray-300 text-sm mb-4">Recibe nuevas publicaciones directamente en tu correo.</p>
-                        
-                        <form class="space-y-3" id="subscribe-form">
-                            <input type="email" id="subscribe-email" name="subscribe-email" required placeholder="Tu correo" class="w-full px-4 py-2 rounded-lg bg-[#1e1e1e] border border-purple-500/30 focus:border-purple-400 focus:outline-none" />
-                            <button type="submit" id="subscribe-button" class="w-full px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Suscribirme</button>
-
-                            <div id="subscribe-success" class="hidden mt-2 text-sm text-green-500"></div>
-                            <div id="subscribe-error" class="hidden mt-2 text-sm text-red-500"></div>
+                    <div class="rounded-2xl bg-blue-700 p-6 text-white shadow-lg shadow-blue-900/20">
+                        <h2 class="text-xl font-black">Suscríbete</h2>
+                        <p class="mt-2 text-sm leading-6 text-blue-100">Recibe nuevas publicaciones directamente en tu correo.</p>
+                        <form class="mt-4 space-y-3" id="subscribe-form">
+                            <input type="email" id="subscribe-email" name="subscribe-email" required placeholder="Tu correo" class="w-full rounded-xl border border-white/20 bg-white px-4 py-3 text-slate-950 outline-none focus:ring-4 focus:ring-white/30">
+                            <button type="submit" id="subscribe-button" class="w-full rounded-xl bg-white px-4 py-3 font-black text-blue-700 hover:bg-blue-50">Suscribirme</button>
+                            <div id="subscribe-success" class="hidden mt-2 text-sm text-blue-50"></div>
+                            <div id="subscribe-error" class="hidden mt-2 text-sm text-red-100"></div>
                         </form>
                     </div>
-                </aside>
-            </div>
+                </div>
+            </aside>
         </div>
     </div>
+</div>
 @endsection
 
 @section('scripts')

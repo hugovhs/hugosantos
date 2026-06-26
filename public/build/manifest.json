@@ -1,0 +1,22 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-Bw5-nyZ_.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-C0G0cght.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/scroll-smooth.js": {
+    "file": "assets/scroll-smooth-D2c_fdob.js",
+    "name": "scroll-smooth",
+    "src": "resources/js/scroll-smooth.js",
+    "isEntry": true
+  }
+}

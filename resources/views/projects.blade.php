@@ -3,40 +3,39 @@
 @section('title', 'Proyectos recientes')
 
 @section('content')
-    <div class="bg-[#1e1e1e] text-white">
-        <div class="container mx-auto p-8">
-            <!-- Projects list header -->
-            <section class="py-10 text-center" id="projects">
-                <h1 class="text-4xl font-bold">Proyectos recientes</h1>
-                <p class="text-gray-400 mt-2">Una selección de mis trabajos más recientes</p>
-
-                <!-- Posts grid (copiado y adaptado de index.blade.php -->
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @forelse ($projects as $project)
-                    <div class="project bg-[#2a2a2a] rounded-lg">
-                        <div class="project-image">
-                            <a href="{{ route('home.project', $project->slug) }}"><img src="{{ asset('storage/' . $project->thumbnail) }}" alt="Work 1" class="w-full h-full object-cover rounded-lg"></a>
-                        </div>
-
-                        <div class="project-name py-3">
-                            <h3 class="text-xl font-bold mt-2">{{ $project->title }}</h3>
-                            <p class="text-gray-400">{{ $project->excerpt }}</p>
-                        </div>
-
-                        <div class="project-actions py-4">
-                            <a href="{{ route('home.project', $project->slug) }}" class="bg-purple-600 text-white rounded-full px-4 py-2 text-sm font-bold">VER DETALLES</a>
-                        </div>
-                    </div>
-                    @empty
-                        <p class="col-span-3 text-gray-400">No hay proyectos recientes.</p>
-                    @endforelse
-                </div>
-
-                <!-- Pagination -->
-                <div class="mt-10">
-                    {{ $projects->links() }}
-                </div>
-            </section>
+<div class="bg-white text-slate-900">
+    <section class="border-b border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px]">
+        <div class="container mx-auto px-5 py-16 text-center">
+            <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Proyectos</p>
+            <h1 class="mt-3 text-4xl font-black text-slate-950 sm:text-5xl">Trabajo reciente</h1>
+            <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">Una selección de soluciones web, móviles y de e-commerce desarrolladas para necesidades reales.</p>
         </div>
-    </div>
+    </section>
+
+    <section class="container mx-auto px-5 py-16">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            @forelse ($projects as $project)
+                <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <a href="{{ route('home.project', $project->slug) }}">
+                        <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="h-60 w-full object-cover">
+                    </a>
+
+                    <div class="p-6">
+                        <h2 class="text-xl font-black text-slate-950">{{ $project->title }}</h2>
+                        <p class="mt-3 text-sm leading-6 text-slate-600">{{ $project->excerpt }}</p>
+                        <a href="{{ route('home.project', $project->slug) }}" class="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-black uppercase tracking-wide text-white hover:bg-blue-800">
+                            Ver detalles <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            @empty
+                <p class="col-span-3 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-slate-500">No hay proyectos recientes.</p>
+            @endforelse
+        </div>
+
+        <div class="mt-10">
+            {{ $projects->links() }}
+        </div>
+    </section>
+</div>
 @endsection
