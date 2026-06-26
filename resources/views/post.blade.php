@@ -37,7 +37,7 @@
                     </figure>
                 @endif
 
-                <section class="max-w-none text-lg leading-8 text-slate-700 [&_a]:font-bold [&_a]:text-blue-700 [&_h2]:text-slate-950 [&_h2]:font-black [&_h3]:text-slate-950 [&_h3]:font-black [&_img]:rounded-2xl">
+                <section class="max-w-none text-lg leading-8 text-slate-700 [&_a]:font-bold [&_a]:text-blue-700 [&_h1]:mb-5 [&_h1]:mt-12 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-slate-950 [&_h2]:mb-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-slate-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-black [&_h3]:leading-snug [&_h3]:text-slate-950 [&_h4]:mb-3 [&_h4]:mt-7 [&_h4]:text-xl [&_h4]:font-black [&_h4]:leading-snug [&_h4]:text-slate-950 [&_h5]:mb-2 [&_h5]:mt-6 [&_h5]:text-lg [&_h5]:font-black [&_h5]:text-slate-950 [&_h6]:mb-2 [&_h6]:mt-6 [&_h6]:font-black [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:text-slate-950 [&_img]:my-8 [&_img]:rounded-2xl [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_p]:mb-6 [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
                     {!! $post->content !!}
                 </section>
 
