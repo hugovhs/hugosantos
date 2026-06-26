@@ -5,9 +5,50 @@
 @section('og_image', asset('storage/' . $post->thumbnail))
 @section('og_type', 'article')
 
+@section('head_styles')
+<style>
+    @media (max-width: 640px) {
+        .post-content,
+        .post-content > * {
+            max-width: 100% !important;
+            overflow-wrap: anywhere;
+        }
+
+        .post-content > *,
+        .post-content [style*="margin-left"],
+        .post-content [style*="padding-left"] {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .post-content ul,
+        .post-content ol {
+            padding-left: 1.25rem !important;
+        }
+
+        .post-content img,
+        .post-content video,
+        .post-content iframe {
+            display: block;
+            height: auto;
+            max-width: 100% !important;
+        }
+
+        .post-content table,
+        .post-content pre {
+            display: block;
+            max-width: 100% !important;
+            overflow-x: auto;
+        }
+    }
+</style>
+@endsection
+
 @section('content')
-<div class="bg-white text-slate-900">
-    <div class="container mx-auto px-5 py-8">
+<div class="overflow-x-hidden bg-white text-slate-900">
+    <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-5">
         <nav class="mb-8 text-sm font-semibold text-slate-500" aria-label="Breadcrumb">
             <ol class="inline-flex flex-wrap items-center gap-2">
                 <li><a href="{{ route('home.index') }}" class="hover:text-blue-700">Inicio</a></li>
@@ -18,7 +59,7 @@
             </ol>
         </nav>
 
-        <div class="grid grid-cols-12 gap-10">
+        <div class="grid min-w-0 grid-cols-12 gap-y-10 lg:gap-10">
             <article class="col-span-12 min-w-0 lg:col-span-8">
                 <header class="mb-8 rounded-3xl border border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px] p-6 sm:p-8">
                     <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Artículo</p>
@@ -37,7 +78,7 @@
                     </figure>
                 @endif
 
-                <section class="max-w-full overflow-hidden break-words text-lg leading-8 text-slate-700 [&_*]:max-w-full [&_a]:font-bold [&_a]:text-blue-700 [&_h1]:mb-5 [&_h1]:mt-12 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-slate-950 [&_h2]:mb-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-slate-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-black [&_h3]:leading-snug [&_h3]:text-slate-950 [&_h4]:mb-3 [&_h4]:mt-7 [&_h4]:text-xl [&_h4]:font-black [&_h4]:leading-snug [&_h4]:text-slate-950 [&_h5]:mb-2 [&_h5]:mt-6 [&_h5]:text-lg [&_h5]:font-black [&_h5]:text-slate-950 [&_h6]:mb-2 [&_h6]:mt-6 [&_h6]:font-black [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:text-slate-950 [&_img]:my-8 [&_img]:h-auto [&_img]:rounded-2xl [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_p]:mb-6 [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
+                <section class="post-content max-w-full overflow-hidden break-words text-lg leading-8 text-slate-700 [&_*]:max-w-full [&_a]:font-bold [&_a]:text-blue-700 [&_blockquote]:mx-0 [&_figure]:mx-0 [&_h1]:mb-5 [&_h1]:mt-12 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-slate-950 [&_h2]:mb-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-slate-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-black [&_h3]:leading-snug [&_h3]:text-slate-950 [&_h4]:mb-3 [&_h4]:mt-7 [&_h4]:text-xl [&_h4]:font-black [&_h4]:leading-snug [&_h4]:text-slate-950 [&_h5]:mb-2 [&_h5]:mt-6 [&_h5]:text-lg [&_h5]:font-black [&_h5]:text-slate-950 [&_h6]:mb-2 [&_h6]:mt-6 [&_h6]:font-black [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:text-slate-950 [&_iframe]:w-full [&_img]:my-8 [&_img]:h-auto [&_img]:rounded-2xl [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_p]:mb-6 [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
                     {!! $post->content !!}
                 </section>
 
