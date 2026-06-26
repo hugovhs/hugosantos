@@ -29,7 +29,7 @@
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100"
                  x-transition:leave-end="opacity-0"
-                 class="fixed inset-0 z-50 bg-white md:hidden"
+                 class="fixed inset-0 z-[9999] min-h-dvh bg-[#ffffff] md:hidden"
                  style="display: none;">
 
                 <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4">

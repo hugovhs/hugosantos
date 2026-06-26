@@ -19,7 +19,7 @@
         </nav>
 
         <div class="grid grid-cols-12 gap-10">
-            <article class="col-span-12 lg:col-span-8">
+            <article class="col-span-12 min-w-0 lg:col-span-8">
                 <header class="mb-8 rounded-3xl border border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px] p-6 sm:p-8">
                     <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Artículo</p>
                     <h1 class="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-5xl">{{ $post->title }}</h1>
@@ -27,7 +27,7 @@
                         <img class="h-10 w-10 rounded-full border border-white shadow-sm" src="{{ asset('assets/img/cv_foto.jpg') }}" alt="{{ $post->userName }}">
                         <span>{{ $post->userName }}</span>
                         <span class="text-slate-300">•</span>
-                        <time datetime="{{ $post->created_at }}">{{ $post->created_at->format('d F, Y') }}</time>
+                        <time datetime="{{ $post->created_at->toDateString() }}">{{ $post->created_at->locale('es')->translatedFormat('d F, Y') }}</time>
                     </div>
                 </header>
 
@@ -37,7 +37,7 @@
                     </figure>
                 @endif
 
-                <section class="max-w-none text-lg leading-8 text-slate-700 [&_a]:font-bold [&_a]:text-blue-700 [&_h1]:mb-5 [&_h1]:mt-12 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-slate-950 [&_h2]:mb-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-slate-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-black [&_h3]:leading-snug [&_h3]:text-slate-950 [&_h4]:mb-3 [&_h4]:mt-7 [&_h4]:text-xl [&_h4]:font-black [&_h4]:leading-snug [&_h4]:text-slate-950 [&_h5]:mb-2 [&_h5]:mt-6 [&_h5]:text-lg [&_h5]:font-black [&_h5]:text-slate-950 [&_h6]:mb-2 [&_h6]:mt-6 [&_h6]:font-black [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:text-slate-950 [&_img]:my-8 [&_img]:rounded-2xl [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_p]:mb-6 [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
+                <section class="max-w-full overflow-hidden break-words text-lg leading-8 text-slate-700 [&_*]:max-w-full [&_a]:font-bold [&_a]:text-blue-700 [&_h1]:mb-5 [&_h1]:mt-12 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-slate-950 [&_h2]:mb-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-slate-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-black [&_h3]:leading-snug [&_h3]:text-slate-950 [&_h4]:mb-3 [&_h4]:mt-7 [&_h4]:text-xl [&_h4]:font-black [&_h4]:leading-snug [&_h4]:text-slate-950 [&_h5]:mb-2 [&_h5]:mt-6 [&_h5]:text-lg [&_h5]:font-black [&_h5]:text-slate-950 [&_h6]:mb-2 [&_h6]:mt-6 [&_h6]:font-black [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:text-slate-950 [&_img]:my-8 [&_img]:h-auto [&_img]:rounded-2xl [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_p]:mb-6 [&_pre]:overflow-x-auto [&_table]:block [&_table]:overflow-x-auto [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
                     {!! $post->content !!}
                 </section>
 
