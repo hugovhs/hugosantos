@@ -13,7 +13,6 @@
                 <ul class="flex items-center gap-1 text-sm font-semibold text-slate-600">
                     <li><a href="{{ route('home.index') }}#home" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Sobre mí</a></li>
                     <li><a href="{{ route('home.index') }}#services" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Servicios</a></li>
-                    <li><a href="{{ route('home.projects') }}" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Proyectos</a></li>
                     <li><a href="{{ route('home.blog') }}" class="rounded-full px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Blog</a></li>
                     <li><a href="{{ route('home.index') }}#contact" class="ml-2 rounded-full bg-blue-700 px-5 py-2 text-white shadow-sm shadow-blue-900/20 hover:bg-blue-800">Contacto</a></li>
                 </ul>

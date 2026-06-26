@@ -14,7 +14,7 @@
         ['icon' => '<i class="fa-brands fa-magento"></i>', 'label' => 'Adobe Commerce', 'value' => 'Developer certificado'],
         ['icon' => '<i class="fa-brands fa-laravel"></i>', 'label' => 'Laravel y PHP', 'value' => '+'.$experienceYears.' años de experiencia'],
         ['icon' => '<i class="fa-brands fa-flutter"></i>', 'label' => 'Flutter', 'value' => 'Apps multiplataforma'],
-        ['icon' => '<i class="fa-brands fa-microsoft"></i>', 'label' => 'C# y .NET', 'value' => 'Backend empresarial'],
+        ['icon' => '<i class="fa-brands fa-node-js"></i>', 'label' => 'Node js', 'value' => 'Backend veloz'],
     ];
 
     $experiences = [
@@ -60,7 +60,7 @@
                 </p>
 
                 <h1 class="max-w-4xl text-4xl font-black leading-[1.03] tracking-normal text-slate-950 sm:text-5xl lg:text-7xl">
-                    Arquitectura y desarrollo para productos digitales serios.
+                    Arquitectura y desarrollo de software.
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
@@ -70,12 +70,13 @@
                 <div class="mt-8 flex flex-col gap-4 sm:flex-row">
                     <a href="#contact" class="inline-flex items-center justify-center gap-3 rounded-full bg-blue-700 px-7 py-4 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800">
                         <i class="fa-solid fa-paper-plane"></i>
-                        Iniciar conversación
+                        Contacto
                     </a>
-                    <a href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" target="_blank" class="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-black uppercase tracking-wide text-slate-800 hover:border-blue-300 hover:text-blue-800">
+                    
+                    {{-- <a href="{{ asset('assets/pdf/hugo_santos_cv_2026.pdf')  }}" target="_blank" class="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-black uppercase tracking-wide text-slate-800 hover:border-blue-300 hover:text-blue-800">
                         <i class="fa-solid fa-download"></i>
                         Descargar CV
-                    </a>
+                    </a> --}}
                 </div>
 
                 <div class="mt-8 flex gap-3">
@@ -88,9 +89,10 @@
             <div class="relative">
                 <div class="absolute -left-5 top-8 hidden h-28 w-28 border-l-4 border-t-4 border-blue-700 lg:block"></div>
                 <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl shadow-blue-950/10">
-                    <img src="{{ asset('assets/img/cv_foto.jpg') }}" alt="Hugo Santos" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top">
+                    <img src="{{ asset('assets/img/hugo_cv_corregida.jpg') }}" alt="Hugo Santos" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top">
+                    
                     <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/70 bg-white/90 p-5 shadow-xl shadow-slate-900/10 backdrop-blur">
-                        <p class="text-sm font-bold uppercase tracking-[0.22em] text-blue-700">Perfil técnico</p>
+                        <p class="text-sm font-bold uppercase tracking-[0.22em] text-blue-700">Experiencia</p>
                         <p class="mt-2 text-2xl font-black text-slate-950">+{{ $experienceYears }} años construyendo software</p>
                     </div>
                 </div>
@@ -120,6 +122,7 @@
         </div>
 
         <div class="grid gap-8 lg:grid-cols-2">
+            {{-- experience section --}}
             <div class="space-y-5 border-l-2 border-blue-100 pl-6">
                 @foreach($experiences as $experience)
                     <article class="relative">
@@ -130,6 +133,7 @@
                     </article>
                 @endforeach
             </div>
+            {{-- ends experience section --}}
 
             <div class="space-y-5">
                 @foreach($skills as $skill)
@@ -222,7 +226,8 @@
             </div>
         </div>
     </section>
-
+    
+    {{--
     @if($projects->count())
         <section class="bg-slate-50 py-20">
             <div class="container mx-auto px-5">
@@ -249,6 +254,7 @@
             </div>
         </section>
     @endif
+    --}}
 
     <section class="container mx-auto px-5 py-20" id="blog">
         <div class="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
