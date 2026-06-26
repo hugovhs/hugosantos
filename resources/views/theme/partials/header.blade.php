@@ -42,7 +42,6 @@
                 <ul class="space-y-2 p-5 text-2xl font-bold text-slate-900">
                     <li><a @click="isOpen = false" href="{{ route('home.index') }}#home" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Sobre mí</a></li>
                     <li><a @click="isOpen = false" href="{{ route('home.index') }}#services" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Servicios</a></li>
-                    <li><a @click="isOpen = false" href="{{ route('home.projects') }}" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Proyectos</a></li>
                     <li><a @click="isOpen = false" href="{{ route('home.blog') }}" class="block rounded-2xl px-4 py-4 hover:bg-blue-50">Blog</a></li>
                     <li><a @click="isOpen = false" href="{{ route('home.index') }}#contact" class="block rounded-2xl bg-blue-700 px-4 py-4 text-white">Contacto</a></li>
                 </ul>
