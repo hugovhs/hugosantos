@@ -7,8 +7,8 @@
     <section class="border-b border-slate-200 bg-[linear-gradient(90deg,rgba(30,64,175,0.055)_1px,transparent_1px),linear-gradient(180deg,rgba(30,64,175,0.055)_1px,transparent_1px)] bg-[size:42px_42px]">
         <div class="container mx-auto px-5 py-16 text-center">
             <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Blog</p>
-            <h1 class="mt-3 text-4xl font-black text-slate-950 sm:text-5xl">Ideas, guías y notas de desarrollo</h1>
-            <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">Artículos, tutoriales y aprendizajes sobre desarrollo web, e-commerce, IA y producto digital.</p>
+            <h1 class="mt-3 text-4xl font-black text-slate-950 sm:text-5xl">Hola mundo</h1>
+            <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">Artículos, tutoriales, noticias relevantes, opiniones y lo que se me ocurra.</p>
         </div>
     </section>
 

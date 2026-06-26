@@ -17,12 +17,6 @@
         ['icon' => '<i class="fa-brands fa-node-js"></i>', 'label' => 'Node js', 'value' => 'Backend veloz'],
     ];
 
-    $experiences = [
-        ['role' => 'Full Stack Developer', 'company' => 'Wibrante', 'period' => '2013 - Presente'],
-        ['role' => 'Backend Developer, Líder técnico', 'company' => 'Never8', 'period' => '2021 - 2025'],
-        ['role' => 'Backend Developer', 'company' => 'MiPC Comunicaciones', 'period' => '2018 - 2021'],
-    ];
-
     $skills = [
         ['name' => 'PHP, Laravel, Magento 2, Adobe Commerce', 'level' => 92],
         ['name' => 'JavaScript, NodeJS, Vue.js, jQuery', 'level' => 90],
@@ -33,8 +27,8 @@
 
     $services = [
         ['name' => 'E-commerce', 'icon' => '<i class="fa-solid fa-cart-shopping"></i>', 'copy' => 'Tiendas, catálogos y flujos de venta preparados para crecer.'],
-        ['name' => 'Apps web', 'icon' => '<i class="fa-solid fa-cloud"></i>', 'copy' => 'Paneles, portales y herramientas internas con lógica clara.'],
-        ['name' => 'Sitios web', 'icon' => '<i class="fa-brands fa-html5"></i>', 'copy' => 'Presencias digitales rápidas, accesibles y fáciles de administrar.'],
+        ['name' => 'Apps web', 'icon' => '<i class="fa-solid fa-cloud"></i>', 'copy' => 'Paneles, portales y herramientas internas.'],
+        ['name' => 'Sitios web', 'icon' => '<i class="fa-brands fa-html5"></i>', 'copy' => 'Presencias digitales rápidas y accesibles.'],
         ['name' => 'Software a la medida', 'icon' => '<i class="fa-solid fa-code"></i>', 'copy' => 'Soluciones diseñadas alrededor de procesos reales.'],
         ['name' => 'Apps móviles', 'icon' => '<i class="fa-solid fa-mobile-screen-button"></i>', 'copy' => 'Experiencias multiplataforma para usuarios en movimiento.'],
         ['name' => 'Integraciones', 'icon' => '<i class="fa-solid fa-plug"></i>', 'copy' => 'APIs, CRMs, ERPs y servicios conectados sin fricción.'],
@@ -44,6 +38,7 @@
         ['name' => 'GitHub Copilot', 'image' => 'assets/img/ia/github_copilot.png', 'copy' => 'Asistencia diaria para acelerar escritura, revisión y exploración de código.'],
         ['name' => 'Warp', 'image' => 'assets/img/ia/warp.png', 'copy' => 'Terminal moderna con flujos de trabajo apoyados por IA.'],
         ['name' => 'ChatGPT', 'image' => 'assets/img/ia/chat_gpt.png', 'copy' => 'Apoyo para investigación, arquitectura, contenido y resolución de problemas.'],
+        ['name' => 'Codex', 'image' => 'assets/img/ia/codex.png', 'copy' => 'Mi agente de desarrollo favorito, ejecuta las tareas previamente diseñadas con cuidado.'],
         ['name' => 'Dyad', 'image' => 'assets/img/ia/dyad.png', 'copy' => 'Prototipado local para convertir ideas en pantallas navegables.'],
         ['name' => 'Midjourney', 'image' => 'assets/img/ia/midjourney.png', 'copy' => 'Generación visual para conceptos, referencias e identidad.'],
     ];
@@ -121,20 +116,7 @@
             </p>
         </div>
 
-        <div class="grid gap-8 lg:grid-cols-2">
-            {{-- experience section --}}
-            <div class="space-y-5 border-l-2 border-blue-100 pl-6">
-                @foreach($experiences as $experience)
-                    <article class="relative">
-                        <span class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-4 border-white bg-blue-700"></span>
-                        <p class="text-sm font-bold text-blue-700">{{ $experience['period'] }}</p>
-                        <h3 class="mt-1 text-xl font-black text-slate-950">{{ $experience['role'] }}</h3>
-                        <p class="text-slate-500">{{ $experience['company'] }}</p>
-                    </article>
-                @endforeach
-            </div>
-            {{-- ends experience section --}}
-
+        <div class="grid gap-8">
             <div class="space-y-5">
                 @foreach($skills as $skill)
                     <div>
@@ -298,10 +280,10 @@
                         <p class="text-sm font-bold uppercase tracking-wide text-slate-500">Email</p>
                         <p class="mt-1 text-lg font-black text-slate-950">hugosantos@wibrante.com</p>
                     </div>
-                    <a href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" target="_blank" class="inline-flex items-center gap-3 rounded-full border border-blue-200 px-5 py-3 font-bold text-blue-700 hover:bg-blue-50">
+                    {{-- <a href="{{ asset('assets/pdf/cv_hugo_santos.pdf') }}" target="_blank" class="inline-flex items-center gap-3 rounded-full border border-blue-200 px-5 py-3 font-bold text-blue-700 hover:bg-blue-50">
                         <i class="fa-solid fa-download"></i>
                         Descargar CV
-                    </a>
+                    </a> --}}
                 </div>
             </div>
 
