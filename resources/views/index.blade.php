@@ -59,7 +59,7 @@
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                    Soy Hugo Santos, Full Stack Developer. Diseño y construyo software en la nube, plataformas de comercio electrónico y aplicaciones que resuelven problemas reales con código mantenible y una experiencia cuidada.
+                    Soy Hugo Santos, Software Engineer. Diseño y construyo software en la nube, plataformas de comercio electrónico y aplicaciones que resuelven problemas reales con código mantenible y una experiencia de usuario cuidada.
                 </p>
 
                 <div class="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -84,7 +84,7 @@
             <div class="relative">
                 <div class="absolute -left-5 top-8 hidden h-28 w-28 border-l-4 border-t-4 border-blue-700 lg:block"></div>
                 <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl shadow-blue-950/10">
-                    <img src="{{ asset('assets/img/hugo_cv_corregida.jpg') }}" alt="Hugo Santos" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top">
+                    <img src="{{ asset('assets/img/hugovhs_cv_2026.jpg') }}" alt="Hugo Santos" class="aspect-[4/5] w-full rounded-[1.5rem] object-cover object-top">
                     
                     <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/70 bg-white/90 p-5 shadow-xl shadow-slate-900/10 backdrop-blur">
                         <p class="text-sm font-bold uppercase tracking-[0.22em] text-blue-700">Experiencia</p>
@@ -110,7 +110,7 @@
     <section class="container mx-auto grid gap-12 px-5 py-20 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
             <p class="text-sm font-black uppercase tracking-[0.24em] text-blue-700">Experiencia</p>
-            <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Trayectoria con foco en ejecución técnica.</h2>
+            <h2 class="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">Trayectoria enfocada en la solidez y escalabilidad técnica.</h2>
             <p class="mt-4 leading-7 text-slate-600">
                 He trabajado en proyectos comerciales, plataformas internas, aplicaciones móviles e integraciones. Mi prioridad es convertir necesidades de negocio en sistemas claros, estables y mantenibles.
             </p>

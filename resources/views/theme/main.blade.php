@@ -13,7 +13,7 @@
         {{-- Open Graph --}}
         <meta property="og:title" content="@yield('title', 'Home') | Hugo Santos Dev">
         <meta property="og:description" content="@yield('meta_description', 'Cuento con más de 12 años de experiencia en el desarrollo web y móvil. Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales.')">
-        <meta property="og:image" content="@yield('og_image', asset('assets/img/hugovhs_og_image.webp'))">
+        <meta property="og:image" content="@yield('og_image', asset('assets/img/hugovhs.webp'))">
         <meta property="og:url" content="{{ request()->fullUrl() }}">
         <meta property="og:type" content="@yield('og_type', 'website')">
 
@@ -21,7 +21,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="@yield('title', 'Home') | Hugo Santos Dev">
         <meta name="twitter:description" content="@yield('meta_description', 'Cuento con más de 12 años de experiencia en el desarrollo web y móvil. Me apasiona crear software y aplicaciones en la nube que resuelvan problemas reales.')">
-        <meta name="twitter:image" content="@yield('og_image', asset('assets/img/hugovhs_og_image.webp'))">
+        <meta name="twitter:image" content="@yield('og_image', asset('assets/img/hugovhs.webp'))">
         <meta name="twitter:creator" content="@hugovhs1">
         <meta name="twitter:site" content="@hugovhs1">
 
