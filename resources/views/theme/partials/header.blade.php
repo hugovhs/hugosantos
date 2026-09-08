@@ -4,7 +4,7 @@
             <img src="{{ asset('assets/img/hugo_santos_icon.png') }}" alt="Hugo Santos Icon" class="h-11 w-11 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
             <div class="leading-tight">
                 <span class="block text-base font-black tracking-wide text-slate-950">Hugo Santos</span>
-                <span class="block text-xs font-semibold uppercase tracking-[0.26em] text-blue-700">Full Stack Developer</span>
+                <span class="block text-xs font-semibold uppercase tracking-[0.26em] text-blue-700">Software Engineer</span>
             </div>
         </a>
 

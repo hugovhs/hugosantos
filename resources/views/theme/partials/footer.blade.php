@@ -3,7 +3,7 @@
         <div>
             <p class="text-lg font-bold">Hugo Santos Dev</p>
             <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
-                Desarrollo web, e-commerce, aplicaciones móviles e integraciones para proyectos que necesitan claridad técnica y ejecución confiable.
+                Desarrollo web, e-commerce, desarrollo de aplicaciones móviles e integraciones.
             </p>
         </div>
 
